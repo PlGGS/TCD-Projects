@@ -35,7 +35,8 @@ namespace Projects
 
         private void btnStoplight_Click(object sender, RoutedEventArgs e)
         {
-
+            frmStopLight frmStopLight = new frmStopLight();
+            frmStopLight.Show();
         }
     }
 }

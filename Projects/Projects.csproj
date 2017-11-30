@@ -55,8 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="StopLight.xaml.cs">
-      <DependentUpon>StopLight.xaml</DependentUpon>
+    <Compile Include="frmStopLight.xaml.cs">
+      <DependentUpon>frmStopLight.xaml</DependentUpon>
     </Compile>
     <Page Include="frmMain.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -74,7 +74,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StopLight.xaml">
+    <Page Include="frmStopLight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,13 +109,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stoplight-red.png" />
+    <None Include="Resources\stoplight-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stoplight-green.png" />
+    <None Include="Resources\stoplight-green.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stoplight-orange.png" />
+    <None Include="Resources\stoplight-orange.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
