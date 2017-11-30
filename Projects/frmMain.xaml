@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="btnMessageBox" Content="Message Box" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click"/>
         <Button x:Name="btnTemperature" Content="Temperature" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" Width="100" Click="btnTemperature_Click"/>
-        <Button x:Name="btnStoplight" Content="Stop Light" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnStoplight" Content="Stop Light" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="100" Click="btnStoplight_Click"/>
         <Button x:Name="btnAutoStopLight" Content="Auto Stop Light" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnTicTacToe" Content="Tic Tac Toe" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnMovingButton" Content="Moving Button" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="100"/>

@@ -32,5 +32,10 @@ namespace Projects
             frmTemperature frmTemp = new frmTemperature();
             frmTemp.Show();
         }
+
+        private void btnStoplight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
