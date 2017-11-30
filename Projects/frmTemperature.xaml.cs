@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,29 +27,22 @@ namespace Projects
 
         private void btnConvertFtoC_Click(object sender, RoutedEventArgs e)
         {
-
+            lblNewTempC.Content = ((Convert.ToInt32(txtTempF.Text) - 32) * 9 / 5) + "° C";
         }
 
         private void btnConvertCtoF_Click(object sender, RoutedEventArgs e)
         {
-
+            lblNcewTempF.Content = (Convert.ToInt32(txtTempC.Text) * 1.8 + 32) + "° F";
+        }
+        
+        private void txtTempF_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]"); //TODO add negative and singular period support
         }
 
-        private void txtTempF_KeyUp(object sender, KeyEventArgs e)
+        private void txtTempC_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (e.Key == Key.D0 || e.Key == Key.NumPad0 ||
-                            e.Key == Key.D1 || e.Key == Key.NumPad1 ||
-                            e.Key == Key.D2 || e.Key == Key.NumPad2 ||
-                            e.Key == Key.D3 || e.Key == Key.NumPad3 ||
-                            e.Key == Key.D4 || e.Key == Key.NumPad4 ||
-                            e.Key == Key.D5 || e.Key == Key.NumPad5 ||
-                            e.Key == Key.D6 || e.Key == Key.NumPad6 ||
-                            e.Key == Key.D7 || e.Key == Key.NumPad7 ||
-                            e.Key == Key.D8 || e.Key == Key.NumPad8 ||
-                            e.Key == Key.D9 || e.Key == Key.NumPad9)
-            {
-                txtTempF.Text += e.Key; //TODO see if this works
-            }
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]");
         }
     }
 }

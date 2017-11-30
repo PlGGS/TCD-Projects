@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="102.817" Width="433.451">
     <Grid>
-        <TextBox Name="txtTempF" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="txtTempF_KeyUp"/>
+        <TextBox Name="txtTempF" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="txtTempF_PreviewTextInput"/>
         <Button Name="btnConvertFtoC" Content="F to C" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnConvertFtoC_Click"/>
         <Label Name="lblNewTempC" Content="Converted Temp" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="200"/>
 
-        <TextBox Name="txtTempC" HorizontalAlignment="Left" Height="23" Margin="215,10,-115,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtTempC" HorizontalAlignment="Left" Height="23" Margin="215,10,-115,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="txtTempC_PreviewTextInput"/>
         <Button Name="btnConvertCtoF" Content="C to F" HorizontalAlignment="Left" Margin="340,10,-195,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnConvertCtoF_Click"/>
         <Label Name="lblNcewTempF" Content="Converted Temp" HorizontalAlignment="Left" Margin="215,38,-195,0" VerticalAlignment="Top" Width="200"/>
     </Grid>
