@@ -44,5 +44,11 @@ namespace Projects
             frmAutoStopLight frmAutoStopLight = new frmAutoStopLight();
             frmAutoStopLight.Show();
         }
+
+        private void btnTicTacToe_Click(object sender, RoutedEventArgs e)
+        {
+            frmTicTacToe frmTicTacToe = new frmTicTacToe();
+            frmTicTacToe.Show();
+        }
     }
 }
