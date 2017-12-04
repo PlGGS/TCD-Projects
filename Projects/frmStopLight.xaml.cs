@@ -22,6 +22,7 @@ namespace Projects
         ImageBrush lightRed = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/stoplight-red.png")));
         ImageBrush lightOrange = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/stoplight-orange.png")));
         ImageBrush lightGreen = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/stoplight-green.png")));
+        sbyte bytBoi = 2;
 
         public frmStopLight()
         {
@@ -30,17 +31,20 @@ namespace Projects
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Background == lightRed)
+            if (bytBoi == 0)
             {
                 this.Background = lightOrange;
+                bytBoi = 1;
             }
-            else if (this.Background == lightOrange)
+            else if (bytBoi == 1)
             {
                 this.Background = lightGreen;
+                bytBoi = 2;
             }
-            else if (this.Background == lightGreen)
+            else if (bytBoi == 2)
             {
                 this.Background = lightRed;
+                bytBoi = 0;
             }
         }
     }
