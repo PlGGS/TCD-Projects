@@ -1,11 +1,11 @@
-﻿<Window x:Class="Projects.frmStopLight"
+﻿<Window x:Class="Projects.frmAutoStopLight"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projects"
         mc:Ignorable="d"
-        Title="StopLight" Height="430" Width="180">
+        Title="frmAutoStopLight" Height="430" Width="180" Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/stoplight-green.png"/>
     </Window.Background>
@@ -13,6 +13,5 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Button Content="Change!" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click"/>
     </Grid>
 </Window>

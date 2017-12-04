@@ -38,5 +38,11 @@ namespace Projects
             frmStopLight frmStopLight = new frmStopLight();
             frmStopLight.Show();
         }
+
+        private void btnAutoStopLight_Click(object sender, RoutedEventArgs e)
+        {
+            frmAutoStopLight frmAutoStopLight = new frmAutoStopLight();
+            frmAutoStopLight.Show();
+        }
     }
 }
