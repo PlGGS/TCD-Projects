@@ -50,5 +50,11 @@ namespace Projects
             frmTicTacToe frmTicTacToe = new frmTicTacToe();
             frmTicTacToe.Show();
         }
+
+        private void btnMovingButton_Click(object sender, RoutedEventArgs e)
+        {
+            frmMovingButton frmMovingButton = new frmMovingButton();
+            frmMovingButton.Show();
+        }
     }
 }
