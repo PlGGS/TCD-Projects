@@ -56,5 +56,11 @@ namespace Projects
             frmMovingButton frmMovingButton = new frmMovingButton();
             frmMovingButton.Show();
         }
+
+        private void TortoiseAndHare_Click(object sender, RoutedEventArgs e)
+        {
+            frmTortoiseAndHare frmTortoiseAndHare = new frmTortoiseAndHare();
+            frmTortoiseAndHare.Show();
+        }
     }
 }

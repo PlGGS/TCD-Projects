@@ -63,6 +63,16 @@ namespace Projects.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hare {
+            get {
+                object obj = ResourceManager.GetObject("Hare", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stoplight_green {
             get {
                 object obj = ResourceManager.GetObject("stoplight_green", resourceCulture);
@@ -86,6 +96,16 @@ namespace Projects.Properties {
         internal static System.Drawing.Bitmap stoplight_red {
             get {
                 object obj = ResourceManager.GetObject("stoplight_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tortoise {
+            get {
+                object obj = ResourceManager.GetObject("Tortoise", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

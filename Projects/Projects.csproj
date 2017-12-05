@@ -96,6 +96,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmTortoiseAndHare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmTemperature.xaml.cs">
@@ -103,6 +107,9 @@
     </Compile>
     <Compile Include="frmTicTacToe.xaml.cs">
       <DependentUpon>frmTicTacToe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmTortoiseAndHare.xaml.cs">
+      <DependentUpon>frmTortoiseAndHare.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -141,6 +148,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stoplight-orange.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hare.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tortoise.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
