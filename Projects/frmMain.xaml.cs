@@ -68,5 +68,11 @@ namespace Projects
             frmTwentyOne frmTwentyOne = new frmTwentyOne();
             frmTwentyOne.Show();
         }
+
+        private void btnSoundBox_Click(object sender, RoutedEventArgs e)
+        {
+            frmSoundBox frmSoundBox = new frmSoundBox();
+            frmSoundBox.Show();
+        }
     }
 }

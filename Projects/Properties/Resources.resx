@@ -133,6 +133,21 @@
   <data name="Tortoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tortoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Balloon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Balloon.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Balloon_Blowing_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Balloon Blowing Up.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CarCrash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarCrash.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chomp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chomp.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coin.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="die_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\die-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,5 +165,26 @@
   </data>
   <data name="die_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\die-6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Explosion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Explosion.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Marching" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Marching.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PowerUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PowerUp.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Short_March" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Short-March.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Siren" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Siren.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Splash.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Sword_Swoosh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sword_Swoosh.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

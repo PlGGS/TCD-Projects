@@ -15,7 +15,7 @@
         <Button x:Name="btnMovingButton" Content="Moving Button" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="100" Click="btnMovingButton_Click"/>
         <Button x:Name="btnTwentyOne" Content="Twenty One" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="100" Click="btnTwentyOne_Click"/>
 
-        <Button x:Name="btnSoundBox" Content="Sound Box" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click" Margin="105,0,0,0"/>
+        <Button x:Name="btnSoundBox" Content="Sound Box" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="105,0,0,0" Click="btnSoundBox_Click"/>
         <Button x:Name="btn99Bottles" Content="99 Bottles" HorizontalAlignment="Left" Margin="105,25,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnSlotMachine" Content="Slot Machine" HorizontalAlignment="Left" Margin="105,50,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnJokeGenerator" Content="Joke Generator" HorizontalAlignment="Left" Margin="105,75,0,0" VerticalAlignment="Top" Width="100"/>
@@ -23,7 +23,7 @@
         <Button x:Name="btnSimon" Content="Simon" HorizontalAlignment="Left" Margin="105,125,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnConcentration" Content="Concentration" HorizontalAlignment="Left" Margin="105,150,0,0" VerticalAlignment="Top" Width="100"/>
 
-        <Button x:Name="btnSnowman" Content="Snowman" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click" Margin="210,0,0,0"/>
+        <Button x:Name="btnSnowman" Content="Snowman" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="210,0,0,0"/>
         <Button x:Name="btnPopcorn" Content="Popcorn" HorizontalAlignment="Left" Margin="210,25,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnTopSecretOrders" Content="Top Secret Orders" HorizontalAlignment="Left" Margin="210,50,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnNestedLoops" Content="Nested Loops" HorizontalAlignment="Left" Margin="210,75,0,0" VerticalAlignment="Top" Width="100"/>
@@ -31,7 +31,7 @@
         <Button x:Name="btnConnectFour" Content="Connect Four" HorizontalAlignment="Left" Margin="210,125,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnConnectFourCPU" Content="Connect Four CPU" HorizontalAlignment="Left" Margin="210,150,0,0" VerticalAlignment="Top" Width="100"/>
 
-        <Button x:Name="btnSlidingPuzzle" Content="Sliding Puzzle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click" Margin="315,0,0,0"/>
+        <Button x:Name="btnSlidingPuzzle" Content="Sliding Puzzle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="315,0,0,0"/>
         <Button x:Name="btnFloodIt" Content="Flood It" HorizontalAlignment="Left" Margin="315,25,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnEtchASketch" Content="Etch A Sketch" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="TortoiseAndHare" Content="Tortoise And Hare" HorizontalAlignment="Left" Margin="315,75,0,0" VerticalAlignment="Top" Width="100" Click="TortoiseAndHare_Click"/>
@@ -47,7 +47,7 @@
         <Button x:Name="btnLANConnectFour" Content="LAN Connect Four" HorizontalAlignment="Left" Margin="420,125,-28,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnTerrain" Content="Terrain" HorizontalAlignment="Left" Margin="420,150,-28,0" VerticalAlignment="Top" Width="100"/>
 
-        <Button x:Name="btnLunarLander" Content="Lunar Lander" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click" Margin="525,0,-105,0"/>
+        <Button x:Name="btnLunarLander" Content="Lunar Lander" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="525,0,-105,0"/>
         <Button x:Name="btnRubberBand" Content="Rubber Band" HorizontalAlignment="Left" Margin="525,25,-105,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnFridgeMagnets" Content="Fridge Magnets" HorizontalAlignment="Left" Margin="525,50,-105,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnSpider" Content="Spider" HorizontalAlignment="Left" Margin="525,75,-105,0" VerticalAlignment="Top" Width="100"/>
@@ -55,7 +55,7 @@
         <Button x:Name="btnMinesweeper" Content="Minesweeper" HorizontalAlignment="Left" Margin="525,125,-105,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnSkiing" Content="Skiing" HorizontalAlignment="Left" Margin="525,150,-105,0" VerticalAlignment="Top" Width="100"/>
         
-        <Button x:Name="btnSpaceFreighter" Content="Space Freighter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click" Margin="630,0,-105,0"/>
+        <Button x:Name="btnSpaceFreighter" Content="Space Freighter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="630,0,-105,0"/>
         <Button x:Name="btnMazeRunner" Content="Maze Runner" HorizontalAlignment="Left" Margin="630,25,-105,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnAngryBirds" Content="Angry Birds" HorizontalAlignment="Left" Margin="630,50,-105,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnDungeonDesign" Content="Dungeon Design" HorizontalAlignment="Left" Margin="630,75,-105,0" VerticalAlignment="Top" Width="100"/>
@@ -63,7 +63,7 @@
         <Button x:Name="btnArkanoid" Content="Arkanoid" HorizontalAlignment="Left" Margin="630,125,-105,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnFootball" Content="Football" HorizontalAlignment="Left" Margin="630,150,-105,0" VerticalAlignment="Top" Width="100"/>
         
-        <Button x:Name="btnCards" Content="Cards" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click" Margin="735,0,-210,0"/>
+        <Button x:Name="btnCards" Content="Cards" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="735,0,-210,0"/>
         <Button x:Name="btnBlackJack" Content="BlackJack" HorizontalAlignment="Left" Margin="735,25,-210,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnEvilClutches" Content="Evil Clutches" HorizontalAlignment="Left" Margin="735,50,-210,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
