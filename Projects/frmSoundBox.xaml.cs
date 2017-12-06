@@ -20,8 +20,6 @@ namespace Projects
     /// </summary>
     public partial class frmSoundBox : Window
     {
-        MediaPlayer player = new MediaPlayer();
-
         public frmSoundBox()
         {
             InitializeComponent();
