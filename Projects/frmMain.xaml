@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projects"
         mc:Ignorable="d"
-        Title="Blake's TCD Projects" Height="209" Width="843">
+        Title="Blake's TCD Projects" Height="209" Width="843" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="btnMessageBox" Content="Message Box" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click"/>
         <Button x:Name="btnTemperature" Content="Temperature" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" Width="100" Click="btnTemperature_Click"/>
@@ -13,7 +13,7 @@
         <Button x:Name="btnAutoStopLight" Content="Auto Stop Light" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" Width="100" Click="btnAutoStopLight_Click"/>
         <Button x:Name="btnTicTacToe" Content="Tic Tac Toe" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="100" Click="btnTicTacToe_Click"/>
         <Button x:Name="btnMovingButton" Content="Moving Button" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="100" Click="btnMovingButton_Click"/>
-        <Button x:Name="btnTwentyOne" Content="Twenty One" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnTwentyOne" Content="Twenty One" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="100" Click="btnTwentyOne_Click"/>
 
         <Button x:Name="btnSoundBox" Content="Sound Box" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Click="btnMessageBox_Click" Margin="105,0,0,0"/>
         <Button x:Name="btn99Bottles" Content="99 Bottles" HorizontalAlignment="Left" Margin="105,25,0,0" VerticalAlignment="Top" Width="100"/>

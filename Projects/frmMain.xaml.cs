@@ -62,5 +62,11 @@ namespace Projects
             frmTortoiseAndHare frmTortoiseAndHare = new frmTortoiseAndHare();
             frmTortoiseAndHare.Show();
         }
+
+        private void btnTwentyOne_Click(object sender, RoutedEventArgs e)
+        {
+            frmTwentyOne frmTwentyOne = new frmTwentyOne();
+            frmTwentyOne.Show();
+        }
     }
 }
