@@ -16,7 +16,7 @@
         <Button x:Name="btnTwentyOne" Content="Twenty One" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="100" Click="btnTwentyOne_Click"/>
 
         <Button x:Name="btnSoundBox" Content="Sound Box" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="105,0,0,0" Click="btnSoundBox_Click"/>
-        <Button x:Name="btn99Bottles" Content="99 Bottles" HorizontalAlignment="Left" Margin="105,25,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btn99Bottles" Content="99 Bottles" HorizontalAlignment="Left" Margin="105,25,0,0" VerticalAlignment="Top" Width="100" Click="btn99Bottles_Click"/>
         <Button x:Name="btnSlotMachine" Content="Slot Machine" HorizontalAlignment="Left" Margin="105,50,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnJokeGenerator" Content="Joke Generator" HorizontalAlignment="Left" Margin="105,75,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnFibonacci" Content="Fibonacci" HorizontalAlignment="Left" Margin="105,100,0,0" VerticalAlignment="Top" Width="100"/>

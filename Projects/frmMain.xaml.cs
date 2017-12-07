@@ -74,5 +74,11 @@ namespace Projects
             frmSoundBox frmSoundBox = new frmSoundBox();
             frmSoundBox.Show();
         }
+
+        private void btn99Bottles_Click(object sender, RoutedEventArgs e)
+        {
+            frm99Bottles frm99Bottles = new frm99Bottles();
+            frm99Bottles.Show();
+        }
     }
 }

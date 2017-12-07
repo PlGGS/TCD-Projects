@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="frm99Bottles.xaml.cs">
+      <DependentUpon>frm99Bottles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmAutoStopLight.xaml.cs">
       <DependentUpon>frmAutoStopLight.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
     <Compile Include="frmStopLight.xaml.cs">
       <DependentUpon>frmStopLight.xaml</DependentUpon>
     </Compile>
+    <Page Include="frm99Bottles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmAutoStopLight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
