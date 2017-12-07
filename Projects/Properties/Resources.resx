@@ -187,4 +187,61 @@
   <data name="Sword_Swoosh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sword_Swoosh.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Beep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Beep.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="coin_tray_big_win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin-tray-big-win.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coin_tray_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin-tray-empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coin_tray_med_win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin-tray-med-win.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coin_tray_small_win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin-tray-small-win.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lever" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lever.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lever_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lever-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lever_Pull" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lever_Pull.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="machine_front" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\machine_front.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="payout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\payout.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="slot_machine_bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_bell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-bell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_berry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-berry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_cherry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-cherry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_grapes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-grapes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_lemon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-lemon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_seven" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-seven.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_water_melon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot-machine-water-melon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

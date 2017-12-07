@@ -81,6 +81,15 @@ namespace Projects.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Beep {
+            get {
+                return ResourceManager.GetStream("Beep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream CarCrash {
             get {
                 return ResourceManager.GetStream("CarCrash", resourceCulture);
@@ -102,6 +111,46 @@ namespace Projects.Properties {
         internal static System.IO.UnmanagedMemoryStream Coin {
             get {
                 return ResourceManager.GetStream("Coin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coin_tray_big_win {
+            get {
+                object obj = ResourceManager.GetObject("coin_tray_big_win", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coin_tray_empty {
+            get {
+                object obj = ResourceManager.GetObject("coin_tray_empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coin_tray_med_win {
+            get {
+                object obj = ResourceManager.GetObject("coin_tray_med_win", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coin_tray_small_win {
+            get {
+                object obj = ResourceManager.GetObject("coin_tray_small_win", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -185,11 +234,59 @@ namespace Projects.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lever {
+            get {
+                object obj = ResourceManager.GetObject("lever", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lever_down {
+            get {
+                object obj = ResourceManager.GetObject("lever_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Lever_Pull {
+            get {
+                return ResourceManager.GetStream("Lever_Pull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap machine_front {
+            get {
+                object obj = ResourceManager.GetObject("machine_front", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream Marching {
             get {
                 return ResourceManager.GetStream("Marching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream payout {
+            get {
+                return ResourceManager.GetStream("payout", resourceCulture);
             }
         }
         
@@ -217,6 +314,96 @@ namespace Projects.Properties {
         internal static System.IO.UnmanagedMemoryStream Siren {
             get {
                 return ResourceManager.GetStream("Siren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_bar {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_bar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_bell {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_bell", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_berry {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_berry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_cherry {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_cherry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_grapes {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_grapes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_lemon {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_lemon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_orange {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_orange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_seven {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_seven", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slot_machine_water_melon {
+            get {
+                object obj = ResourceManager.GetObject("slot_machine_water_melon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

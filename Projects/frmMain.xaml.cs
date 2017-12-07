@@ -80,5 +80,10 @@ namespace Projects
             frm99Bottles frm99Bottles = new frm99Bottles();
             frm99Bottles.Show();
         }
+        
+        private void btnSlotMachine_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
