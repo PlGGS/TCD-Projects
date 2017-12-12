@@ -83,6 +83,12 @@ namespace Projects
         
         private void btnSlotMachine_Click(object sender, RoutedEventArgs e)
         {
+            frmSlotMachine frmSlotMachine = new frmSlotMachine();
+            frmSlotMachine.Show();
+        }
+
+        private void btnJokeGenerator_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

@@ -36,7 +36,7 @@ namespace Projects
         };
 
         //lever images
-        ImageBrush imgLever = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/lever.png")));
+        ImageBrush imgLeverUp = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/lever.png")));
         ImageBrush imgLeverDown = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/lever-down.png")));
 
         //coin tray images
@@ -53,12 +53,12 @@ namespace Projects
             new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-cherry.png"))),
             new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-lemon.png"))),
             new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-berry.png"))),
-            new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-grape.png"))),
+            new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-grapes.png"))),
             new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-orange.png"))),
             new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-seven.png"))),
             new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-bar.png"))),
             new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-bell.png"))),
-            new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-watermelon.png")))
+            new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/slot-machine-water-melon.png")))
         };
 
         //our sound effects
@@ -76,7 +76,7 @@ namespace Projects
         public frmSlotMachine()
         {
             InitializeComponent();
-            coinsTextBox.Text = coins.ToString();
+            lblCoins.Content = coins.ToString();
         }
 
         void SpinRotors()
@@ -110,65 +110,54 @@ namespace Projects
             //TODO if all three rotors are the same
             //put the coinTrayLargeWin image in the cointray picture box 
             //and call payout 3 times
-
-            //TODO otherwise...if two rotors are the same, 
-            //put the coin tray medium win image 
-            //in the coinTrayPictureBox and call payout 2 times    
-
-
-            //TODO otherwise...if any of the rotors is a SEVEN, 
-            //put the coinTraySmallWin image in the cointray picture box 
-            //and call payout once
-
-
+            if (rotor1 == rotor2 && rotor2 == rotor3)
+            {
+                imgCoinTray.Source = imgCoinTrayLargeWin.ImageSource;
+                PayOut();
+                PayOut();
+                PayOut();
+            }
+            else if (rotor1 == rotor2 || rotor2 == rotor3 || rotor1 == rotor3)
+            {
+                imgCoinTray.Source = imgCoinTrayMediumWin.ImageSource;
+                PayOut();
+                PayOut();
+            }
+            else if (rotor1 == 5 || rotor2 == 5 || rotor3 == 5)
+            {
+                imgCoinTray.Source = imgCoinTraySmallWin.ImageSource;
+                PayOut();
+            }
         }
 
-        void Payout()
+        void PayOut()
         {
-            coins += PAY_OUT;
-            payoutSound.PlaySync();
-            coinTrayPictureBox.Refresh();
+            coins += payOut_;
+            payOutSound.PlaySync();
         }
 
         private void imgLever_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //TODO If coins is less than or equal to 0, 
-            //display a MessageBox that says "You're broke" and 
-            //call return to stop processing.
+            if (coins <= 0)
+            {
+                MessageBox.Show("You're broke");
+                return;
+            }
 
+            coins--;
 
+            imgCoinTray.Source = imgCoinTrayEmpty.ImageSource;
 
-            //TODO Subtract 1 from coins
+            imgLever.Source = imgLeverDown.ImageSource;
 
+            pullSound.PlaySync();
 
-            //TODO Set the image property of the coin tray picture box to the 'empty' image
+            imgLever.Source = imgLeverUp.ImageSource;
 
+            SpinRotors();
+            CalculatePayout();
 
-
-            //TODO Set the lever's picture box to the lever Down image
-
-
-            //TODO - Call leverPictureBox's Refresh() function
-
-
-            //TODO call the pullSound's PlaySync() function
-
-
-            //TODO Set the lever's picture box to the lever up image
-
-
-            //TODO - Call leverPictureBox's Refresh() function
-
-
-            //TODO call SpinRotors function
-
-
-
-            //TODO call CalculatePayout function
-
-
-            //leave this alone    
-            coinsTextBox.Text = coins.ToString();
+            lblCoins.Content = coins.ToString();
         }
     }
 }
