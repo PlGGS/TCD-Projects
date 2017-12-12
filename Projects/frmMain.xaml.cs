@@ -89,7 +89,8 @@ namespace Projects
 
         private void btnJokeGenerator_Click(object sender, RoutedEventArgs e)
         {
-
+            frmJokeGenerator frmJokeGenerator = new frmJokeGenerator();
+            frmJokeGenerator.Show();
         }
     }
 }
