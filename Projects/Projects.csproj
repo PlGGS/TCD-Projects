@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="frmFibonacci.xaml.cs">
+      <DependentUpon>frmFibonacci.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frm99Bottles.xaml.cs">
       <DependentUpon>frm99Bottles.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
     <Compile Include="frmStopLight.xaml.cs">
       <DependentUpon>frmStopLight.xaml</DependentUpon>
     </Compile>
+    <Page Include="frmFibonacci.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frm99Bottles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

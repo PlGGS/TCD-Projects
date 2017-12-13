@@ -92,5 +92,11 @@ namespace Projects
             frmJokeGenerator frmJokeGenerator = new frmJokeGenerator();
             frmJokeGenerator.Show();
         }
+
+        private void btnFibonacci_Click(object sender, RoutedEventArgs e)
+        {
+            frmFibonacci frmFibonacci = new frmFibonacci();
+            frmFibonacci.Show();
+        }
     }
 }

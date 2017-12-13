@@ -19,7 +19,7 @@
         <Button x:Name="btn99Bottles" Content="99 Bottles" HorizontalAlignment="Left" Margin="105,25,0,0" VerticalAlignment="Top" Width="100" Click="btn99Bottles_Click"/>
         <Button x:Name="btnSlotMachine" Content="Slot Machine" HorizontalAlignment="Left" Margin="105,50,0,0" VerticalAlignment="Top" Width="100" Click="btnSlotMachine_Click"/>
         <Button x:Name="btnJokeGenerator" Content="Joke Generator" HorizontalAlignment="Left" Margin="105,75,0,0" VerticalAlignment="Top" Width="100" Click="btnJokeGenerator_Click"/>
-        <Button x:Name="btnFibonacci" Content="Fibonacci" HorizontalAlignment="Left" Margin="105,100,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnFibonacci" Content="Fibonacci" HorizontalAlignment="Left" Margin="105,100,0,0" VerticalAlignment="Top" Width="100" Click="btnFibonacci_Click"/>
         <Button x:Name="btnSimon" Content="Simon" HorizontalAlignment="Left" Margin="105,125,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnConcentration" Content="Concentration" HorizontalAlignment="Left" Margin="105,150,0,0" VerticalAlignment="Top" Width="100"/>
 
