@@ -70,6 +70,9 @@
     <Compile Include="frmMovingButton.xaml.cs">
       <DependentUpon>frmMovingButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmSimon.xaml.cs">
+      <DependentUpon>frmSimon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmSlotMachine.xaml.cs">
       <DependentUpon>frmSlotMachine.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="frmMovingButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmSimon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -387,6 +394,30 @@
     <None Include="Resources\lever.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Red-On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Yellow-Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Yellow-On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Blue-Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Blue-On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Green-Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Green-On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simon-Red-Off.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

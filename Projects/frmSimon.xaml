@@ -1,0 +1,17 @@
+﻿<Window x:Class="Projects.frmSimon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projects"
+        mc:Ignorable="d"
+        Title="frmSimon" Height="483" Width="428">
+    <Grid>
+        <Rectangle Name="imgTopLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
+        <Rectangle Name="imgTopRight" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="210,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
+        <Rectangle Name="imgBotLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="10,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
+        <Rectangle Name="imgBotRight" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="210,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
+        <Button Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" Width="200" Height="27" Click="btnGo_Click"/>
+        <Button Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="210,415,0,0" VerticalAlignment="Top" Width="200" Height="27" Click="btnReset_Click"/>
+    </Grid>
+</Window>

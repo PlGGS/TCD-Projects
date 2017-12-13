@@ -98,5 +98,11 @@ namespace Projects
             frmFibonacci frmFibonacci = new frmFibonacci();
             frmFibonacci.Show();
         }
+
+        private void btnSimon_Click(object sender, RoutedEventArgs e)
+        {
+            frmSimon frmSimon = new frmSimon();
+            frmSimon.Show();
+        }
     }
 }
