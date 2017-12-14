@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="frmSimon" Height="483" Width="428">
     <Grid>
-        <Rectangle Name="imgTopLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
-        <Rectangle Name="imgTopRight" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="210,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
-        <Rectangle Name="imgBotLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="10,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
-        <Rectangle Name="imgBotRight" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="210,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
         <Button Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" Width="200" Height="27" Click="btnGo_Click"/>
         <Button Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="210,415,0,0" VerticalAlignment="Top" Width="200" Height="27" Click="btnReset_Click"/>
+        <Image Name="imgTopLeft" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" MouseUp="imgTopLeft_MouseUp" Source="pack://siteoforigin:,,,/Resources/Simon-Green-Off.png"></Image>
+        <Image Name="imgTopRight" HorizontalAlignment="Left" Height="200" Margin="210,10,0,0" VerticalAlignment="Top" Width="200" MouseUp="imgTopRight_MouseUp" Source="pack://siteoforigin:,,,/Resources/Simon-Red-Off.png"></Image>
+        <Image Name="imgBotLeft" HorizontalAlignment="Left" Height="200" Margin="10,210,0,0" VerticalAlignment="Top" Width="200" MouseUp="imgBotLeft_MouseUp" Source="pack://siteoforigin:,,,/Resources/Simon-Blue-Off.png"></Image>
+        <Image Name="imgBotRight" HorizontalAlignment="Left" Height="200" Margin="210,210,0,0" VerticalAlignment="Top" Width="200" MouseUp="imgBotRight_MouseUp" Source="pack://siteoforigin:,,,/Resources/Simon-Yellow-Off.png"></Image>
     </Grid>
 </Window>
