@@ -104,5 +104,11 @@ namespace Projects
             frmSimon frmSimon = new frmSimon();
             frmSimon.Show();
         }
+
+        private void btnFloodIt_Click(object sender, RoutedEventArgs e)
+        {
+            frmFloodIt frmFloodIt = new frmFloodIt();
+            frmFloodIt.Show();
+        }
     }
 }

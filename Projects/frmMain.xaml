@@ -32,7 +32,7 @@
         <Button x:Name="btnConnectFourCPU" Content="Connect Four CPU" HorizontalAlignment="Left" Margin="210,150,0,0" VerticalAlignment="Top" Width="100"/>
 
         <Button x:Name="btnSlidingPuzzle" Content="Sliding Puzzle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="315,0,0,0"/>
-        <Button x:Name="btnFloodIt" Content="Flood It" HorizontalAlignment="Left" Margin="315,25,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnFloodIt" Content="Flood It" HorizontalAlignment="Left" Margin="315,25,0,0" VerticalAlignment="Top" Width="100" Click="btnFloodIt_Click"/>
         <Button x:Name="btnEtchASketch" Content="Etch A Sketch" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="TortoiseAndHare" Content="Tortoise And Hare" HorizontalAlignment="Left" Margin="315,75,0,0" VerticalAlignment="Top" Width="100" Click="TortoiseAndHare_Click"/>
         <Button x:Name="btnPong" Content="Pong" HorizontalAlignment="Left" Margin="315,100,0,0" VerticalAlignment="Top" Width="100"/>

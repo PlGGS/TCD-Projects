@@ -64,6 +64,9 @@
     <Compile Include="frmAutoStopLight.xaml.cs">
       <DependentUpon>frmAutoStopLight.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmFloodIt.xaml.cs">
+      <DependentUpon>frmFloodIt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmJokeGenerator.xaml.cs">
       <DependentUpon>frmJokeGenerator.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="frmAutoStopLight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmFloodIt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
