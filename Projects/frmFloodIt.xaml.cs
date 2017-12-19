@@ -59,18 +59,59 @@ namespace Projects
             }
         }
 
-        private void FloodBoard(Color color)
+        private void FloodBoard(Color chosenColor)
         {
+            Color ogColor = GetBrushColor(board[0, 0].Fill);
+            bool plsBreak = false;
+
             for (int c = 0; c < rowColumnAmt; c++)
             {
                 for (int r = 0; r < rowColumnAmt; r++)
                 {
-                    /*if (board[++c, r].Fill != board[c, r].Fill)
+                    try
                     {
+                        if (c == 0 && r == 0)
+                            board[c, r].Fill = new SolidColorBrush(chosenColor);
 
-                    }*/
+                        if (board[c++, r].Fill != board[c, r].Fill && GetBrushColor(board[c++, r].Fill) != ogColor)
+                        {
+                            plsBreak = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine(c);
+                            board[c++, r].Fill.SetValue(SolidColorBrush.ColorProperty, chosenColor);
+                            System.Threading.Thread.Sleep(50);
+                        }
+
+                        if (board[c, r++].Fill != board[c, r].Fill && GetBrushColor(board[c, r++].Fill) != ogColor)
+                        {
+                            plsBreak = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine(c);
+                            board[c, r++].Fill.SetValue(SolidColorBrush.ColorProperty, chosenColor);
+                            System.Threading.Thread.Sleep(50);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
                 }
-            }
+
+                if (plsBreak)
+                {
+                    break;
+                }
+            } //TODO replace with recursive algorithm
+        }
+
+        Color GetBrushColor(Brush brush)
+        {
+            return (Color)brush.GetValue(SolidColorBrush.ColorProperty);
         }
         
         private void Rectangle_MouseUp(object sender, MouseButtonEventArgs e)
