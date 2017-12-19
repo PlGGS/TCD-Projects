@@ -19,7 +19,8 @@ namespace Projects
         const int rowColumnAmt = 15;
         Rectangle[,] board = new Rectangle[rowColumnAmt, rowColumnAmt];
         Random rnd = new Random();
-
+        Brush[] colors = new SolidColorBrush[5];
+        
         public frmFloodIt()
         {
             InitializeComponent();
@@ -27,7 +28,17 @@ namespace Projects
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SetColors();
             FillBoard();
+        }
+
+        private void SetColors()
+        {
+            colors[0] = new SolidColorBrush(Colors.Red);
+            colors[1] = new SolidColorBrush(Colors.Blue);
+            colors[3] = new SolidColorBrush(Colors.Yellow);
+            colors[2] = new SolidColorBrush(Colors.Green);
+            colors[4] = new SolidColorBrush(Colors.Orange);
         }
 
         private void FillBoard()
@@ -36,14 +47,55 @@ namespace Projects
             {
                 for (int r = 0; r < rowColumnAmt; r++)
                 {
-                    board[c, r] = new Rectangle();
-                    board[c, r].Margin = new Thickness(15 * c, 15 * r, 0, 0);
-                    board[c, r].Height = 15;
-                    board[c, r].Width = 15;
-                    board[c, r].Fill = new SolidColorBrush(Color.FromRgb((byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255)));
+                    board[c, r] = new Rectangle()
+                    {
+                        Margin = new Thickness(15 * c, 15 * r, 0, 0),
+                        Height = 15,
+                        Width = 15,
+                        Fill = colors[rnd.Next(0, 5)]
+                    };
                     canvas.Children.Add(board[c, r]);
                 }
             }
+        }
+
+        private void FloodBoard(Color color)
+        {
+            for (int c = 0; c < rowColumnAmt; c++)
+            {
+                for (int r = 0; r < rowColumnAmt; r++)
+                {
+                    /*if (board[++c, r].Fill != board[c, r].Fill)
+                    {
+
+                    }*/
+                }
+            }
+        }
+        
+        private void Rectangle_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            FloodBoard(Colors.Red);
+        }
+
+        private void Rectangle_MouseUp_1(object sender, MouseButtonEventArgs e)
+        {
+            FloodBoard(Colors.Blue);
+        }
+
+        private void Rectangle_MouseUp_2(object sender, MouseButtonEventArgs e)
+        {
+            FloodBoard(Colors.Yellow);
+        }
+
+        private void Rectangle_MouseUp_3(object sender, MouseButtonEventArgs e)
+        {
+            FloodBoard(Colors.Green);
+        }
+
+        private void Rectangle_MouseUp_4(object sender, MouseButtonEventArgs e)
+        {
+            FloodBoard(Colors.Orange);
         }
     }
 }
