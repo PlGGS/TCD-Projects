@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Projects
 {
@@ -20,7 +21,9 @@ namespace Projects
         Rectangle[,] board = new Rectangle[rowColumnAmt, rowColumnAmt];
         Random rnd = new Random();
         Brush[] colors = new SolidColorBrush[5];
-        
+        List<Rectangle> fillRects = new List<Rectangle>();
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+
         public frmFloodIt()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace Projects
         {
             SetColors();
             FillBoard();
+            CreateTimer();
         }
 
         private void SetColors()
@@ -39,6 +43,13 @@ namespace Projects
             colors[3] = new SolidColorBrush(Colors.Yellow);
             colors[2] = new SolidColorBrush(Colors.Green);
             colors[4] = new SolidColorBrush(Colors.Orange);
+        }
+
+        private void CreateTimer(int hours, int minutes, int seconds)
+        {
+            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(hours, minutes, seconds);
+            dispatcherTimer.Start();
         }
 
         private void FillBoard()
@@ -59,12 +70,24 @@ namespace Projects
             }
         }
 
-        private void FloodBoard(Color chosenColor)
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
             Color ogColor = GetBrushColor(board[0, 0].Fill);
+
+            if (fillRects.Count == 0)
+            {
+                dispatcherTimer.Stop();
+                return;
+            }
+        }
+
+        private void FloodBoard(Color chosenColor)
+        {
             bool plsBreak = false;
 
-            for (int c = 0; c < rowColumnAmt; c++)
+
+
+            /*for (int c = 0; c < rowColumnAmt; c++)
             {
                 for (int r = 0; r < rowColumnAmt; r++)
                 {
@@ -106,7 +129,7 @@ namespace Projects
                 {
                     break;
                 }
-            } //TODO replace with recursive algorithm
+            }*/
         }
 
         Color GetBrushColor(Brush brush)
