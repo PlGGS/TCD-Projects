@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Card.cs" />
+    <Compile Include="frmConcentration.xaml.cs">
+      <DependentUpon>frmConcentration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmFibonacci.xaml.cs">
       <DependentUpon>frmFibonacci.xaml</DependentUpon>
     </Compile>
@@ -85,6 +89,10 @@
     <Compile Include="frmStopLight.xaml.cs">
       <DependentUpon>frmStopLight.xaml</DependentUpon>
     </Compile>
+    <Page Include="frmConcentration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmFibonacci.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -466,6 +474,42 @@
     <None Include="Resources\tone_middle_c.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_dynamite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_lamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_torch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_top.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardFlip.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

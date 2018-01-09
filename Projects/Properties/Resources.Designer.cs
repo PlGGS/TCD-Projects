@@ -88,11 +88,110 @@ namespace Projects.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blank {
+            get {
+                object obj = ResourceManager.GetObject("blank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream CarCrash {
             get {
                 return ResourceManager.GetStream("CarCrash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_back {
+            get {
+                object obj = ResourceManager.GetObject("card_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_coins {
+            get {
+                object obj = ResourceManager.GetObject("card_coins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_dynamite {
+            get {
+                object obj = ResourceManager.GetObject("card_dynamite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_knight {
+            get {
+                object obj = ResourceManager.GetObject("card_knight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_lamp {
+            get {
+                object obj = ResourceManager.GetObject("card_lamp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_shield {
+            get {
+                object obj = ResourceManager.GetObject("card_shield", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_sword {
+            get {
+                object obj = ResourceManager.GetObject("card_sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap card_torch {
+            get {
+                object obj = ResourceManager.GetObject("card_torch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream CardFlip {
+            get {
+                return ResourceManager.GetStream("CardFlip", resourceCulture);
             }
         }
         
@@ -278,6 +377,16 @@ namespace Projects.Properties {
         internal static System.IO.UnmanagedMemoryStream Marching {
             get {
                 return ResourceManager.GetStream("Marching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap no_card {
+            get {
+                object obj = ResourceManager.GetObject("no_card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -532,6 +641,16 @@ namespace Projects.Properties {
         internal static System.IO.UnmanagedMemoryStream Sword_Swoosh {
             get {
                 return ResourceManager.GetStream("Sword_Swoosh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_top {
+            get {
+                object obj = ResourceManager.GetObject("table_top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

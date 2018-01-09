@@ -110,5 +110,11 @@ namespace Projects
             frmFloodIt frmFloodIt = new frmFloodIt();
             frmFloodIt.Show();
         }
+
+        private void btnConcentration_Click(object sender, RoutedEventArgs e)
+        {
+            frmConcentration frmConcentration = new frmConcentration();
+            frmConcentration.Show();
+        }
     }
 }

@@ -283,4 +283,40 @@
   <data name="tone_Wrong_Guess" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tone_Wrong_Guess.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CardFlip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CardFlip.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="card_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card_coins" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_coins.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card_dynamite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_dynamite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card_knight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_knight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card_lamp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_lamp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card_shield" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_shield.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card_sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_sword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card_torch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_torch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="no_card" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\no-card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table_top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table_top.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

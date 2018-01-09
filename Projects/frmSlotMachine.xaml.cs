@@ -23,7 +23,7 @@ namespace Projects
         int coins = 10; //how many coins the player has left
         const int payOut_ = 2; //how many coins per payout
 
-        enum rotorValues
+        enum RotorValues
         {
             CHERRY,
             LEMON,

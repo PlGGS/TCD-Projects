@@ -33,7 +33,7 @@ namespace Projects
         {
             SetColors();
             FillBoard();
-            CreateTimer();
+            CreateTimer(0, 0, 0);
         }
 
         private void SetColors()
@@ -72,6 +72,12 @@ namespace Projects
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
+            
+        }
+
+        private void FloodBoard(Color chosenColor)
+        {
+            bool plsBreak = false;
             Color ogColor = GetBrushColor(board[0, 0].Fill);
 
             if (fillRects.Count == 0)
@@ -79,11 +85,6 @@ namespace Projects
                 dispatcherTimer.Stop();
                 return;
             }
-        }
-
-        private void FloodBoard(Color chosenColor)
-        {
-            bool plsBreak = false;
 
 
 
