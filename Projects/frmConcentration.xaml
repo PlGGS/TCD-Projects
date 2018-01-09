@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projects"
         mc:Ignorable="d"
-        Title="frmConcentration" Height="323.963" Width="691.147">
+        Title="frmConcentration" Height="324" Width="750">
     <Grid>
-        <Image Name="imgCard0" HorizontalAlignment="Left" Height="224" Margin="387,46,0,0" VerticalAlignment="Top" Width="68" Source="pack://siteoforigin:,,,/Resources/blank.png" Stretch="UniformToFill" MouseUp="imgLever_MouseUp"/>
+        <Image Name="imgCard0" HorizontalAlignment="Left" Height="131" Margin="10,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard1" HorizontalAlignment="Left" Height="131" Margin="10,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard2" HorizontalAlignment="Left" Height="131" Margin="114,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard3" HorizontalAlignment="Left" Height="131" Margin="218,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard4" HorizontalAlignment="Left" Height="131" Margin="322,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard5" HorizontalAlignment="Left" Height="131" Margin="426,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard6" HorizontalAlignment="Left" Height="131" Margin="530,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard7" HorizontalAlignment="Left" Height="131" Margin="634,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard8" HorizontalAlignment="Left" Height="131" Margin="114,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard9" HorizontalAlignment="Left" Height="131" Margin="218,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard10" HorizontalAlignment="Left" Height="131" Margin="322,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard11" HorizontalAlignment="Left" Height="131" Margin="426,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard12" HorizontalAlignment="Left" Height="131" Margin="530,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
+        <Image Name="imgCard13" HorizontalAlignment="Left" Height="131" Margin="634,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
     </Grid>
 </Window>

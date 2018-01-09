@@ -13,18 +13,18 @@ namespace Projects
 {
     class Card
     {
-        public ImageBrush imgBlank = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/blank.png")));
-        public ImageBrush imgBack = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_back.png")));
-        public ImageBrush imgCoins = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_coins.png")));
-        public ImageBrush imgDynamite = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_dynamite.png")));
-        public ImageBrush imgKnight = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_knight.png")));
-        public ImageBrush imgLamp = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_lamp.png")));
-        public ImageBrush imgShield = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_shield.png")));
-        public ImageBrush imgSword = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_sword.png")));
-        public ImageBrush imgTorch = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_torch.png")));
-        public ImageBrush imgTable = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/table_top.png")));
+        protected ImageBrush imgBlank = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/blank.png")));
+        protected ImageBrush imgBack = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_back.png")));
+        protected ImageBrush imgCoins = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_coins.png")));
+        protected ImageBrush imgDynamite = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_dynamite.png")));
+        protected ImageBrush imgKnight = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_knight.png")));
+        protected ImageBrush imgLamp = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_lamp.png")));
+        protected ImageBrush imgShield = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_shield.png")));
+        protected ImageBrush imgSword = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_sword.png")));
+        protected ImageBrush imgTorch = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_torch.png")));
+        protected ImageBrush imgTable = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/table_top.png")));
 
-        public static SoundPlayer flipSound = new SoundPlayer(Properties.Resources.CardFlip);
+        protected static SoundPlayer flipSound = new SoundPlayer(Properties.Resources.CardFlip);
         public static SoundPlayer FlipSound
         {
             get
@@ -47,7 +47,7 @@ namespace Projects
             Table
         };
 
-        public int cardType;
+        protected int cardType;
         public int CardType
         {
             get
@@ -60,7 +60,7 @@ namespace Projects
             }
         }
 
-        public System.Windows.Controls.Image img;
+        protected System.Windows.Controls.Image img;
         public System.Windows.Controls.Image IMG
         {
             get
@@ -73,7 +73,7 @@ namespace Projects
             }
         }
 
-        public bool matched = false;
+        protected bool matched = false;
         public bool Matched
         {
             get
