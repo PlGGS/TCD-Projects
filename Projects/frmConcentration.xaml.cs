@@ -16,12 +16,34 @@ namespace Projects
 {
     public partial class frmConcentration : Window
     {
+        public Dictionary<string, ImageBrush> CardTypes = new Dictionary<string, ImageBrush>
+        {
+            {"Blank", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/blank.png")))},
+            {"Back", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_back.png")))},
+            {"Coins", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_coins.png")))},
+            {"Dynamite", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_dynamite.png")))},
+            {"Knight", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_knight.png")))},
+            {"Lamp", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_lamp.png")))},
+            {"Shield", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_shield.png")))},
+            {"Sword", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_sword.png")))},
+            {"Torch", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_torch.png")))},
+            {"Table", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/table_top.jpg")))}
+        };
         Card[] cards = new Card[14];
         Card[] choices = new Card[2];
+        Random rnd = new Random();
 
         public frmConcentration()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < cards.Length; i++)
+            {
+                cards[i] = new Card(rnd.Next(0, CardTypes.Count - 1)); //TODO make sure card has match
+            }
         }
 
         private void FlipCard(int position)
@@ -82,7 +104,46 @@ namespace Projects
             switch (img.Name)
             {
                 case "imgCard0":
-                    FlipCard(0); //TODO set all card info randomly on application startup
+                    FlipCard(0);
+                    break;
+                case "imgCard1":
+                    FlipCard(1);
+                    break;
+                case "imgCard2":
+                    FlipCard(2);
+                    break;
+                case "imgCard3":
+                    FlipCard(3);
+                    break;
+                case "imgCard4":
+                    FlipCard(4);
+                    break;
+                case "imgCard5":
+                    FlipCard(5);
+                    break;
+                case "imgCard6":
+                    FlipCard(6);
+                    break;
+                case "imgCard7":
+                    FlipCard(7);
+                    break;
+                case "imgCard8":
+                    FlipCard(8);
+                    break;
+                case "imgCard9":
+                    FlipCard(9);
+                    break;
+                case "imgCard10":
+                    FlipCard(10);
+                    break;
+                case "imgCard11":
+                    FlipCard(11);
+                    break;
+                case "imgCard12":
+                    FlipCard(12);
+                    break;
+                case "imgCard13":
+                    FlipCard(13);
                     break;
 
                 default:

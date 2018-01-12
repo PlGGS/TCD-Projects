@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projects"
         mc:Ignorable="d"
-        Title="frmConcentration" Height="324" Width="750">
+        Title="frmConcentration" Height="324" Width="750" Loaded="Window_Loaded">
     <Grid>
         <Image Name="imgCard0" HorizontalAlignment="Left" Height="131" Margin="10,10,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
         <Image Name="imgCard1" HorizontalAlignment="Left" Height="131" Margin="10,152,0,0" VerticalAlignment="Top" Width="99" Source="pack://siteoforigin:,,,/Resources/card_back.png" Stretch="Fill" MouseUp="imgCard_MouseUp"/>
