@@ -36,13 +36,17 @@ namespace Projects
         public frmConcentration()
         {
             InitializeComponent();
-        }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+            CreateDeck();
+        }
+        
+        private void CreateDeck()
         {
-            for (int i = 0; i < cards.Length; i++)
+            int tmpCardNum = 0;
+            for (int i = 0; i < CardTypes.Count; i++)
             {
-                cards[i] = new Card(rnd.Next(0, CardTypes.Count - 1)); //TODO make sure card has match
+                cards[tmpCardNum++] = new Card(i);
+                cards[tmpCardNum++] = new Card(i);
             }
         }
 
