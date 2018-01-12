@@ -14,20 +14,19 @@ namespace Projects
 {
     class Card
     {
+        ImageBrush imgBlank = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/blank.png")));
+        ImageBrush imgBack = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_back.png")));
+        ImageBrush imgTable = new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/table_top.jpg")));
         public Dictionary<string, ImageBrush> CardTypes = new Dictionary<string, ImageBrush>
         {
-            {"Blank", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/blank.png")))},
-            {"Back", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_back.png")))},
             {"Coins", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_coins.png")))},
             {"Dynamite", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_dynamite.png")))},
             {"Knight", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_knight.png")))},
             {"Lamp", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_lamp.png")))},
             {"Shield", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_shield.png")))},
             {"Sword", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_sword.png")))},
-            {"Torch", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_torch.png")))},
-            {"Table", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/table_top.jpg")))}
+            {"Torch", new ImageBrush(new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/card_torch.png")))}
         };
-        
         protected static SoundPlayer flipSound = new SoundPlayer(Properties.Resources.CardFlip);
         public static SoundPlayer FlipSound
         {
@@ -144,11 +143,11 @@ namespace Projects
         {
             if (matched)
             {
-                img.ImageSource = CardTypes.Values.ToArray()[0].ImageSource;
+                img.ImageSource = imgBlank.ImageSource;
             }
             else
             {
-                img.ImageSource = CardTypes.Values.ToArray()[1].ImageSource;
+                img.ImageSource = imgBack.ImageSource;
             }
         }
         
