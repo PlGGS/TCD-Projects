@@ -81,7 +81,7 @@ namespace Projects
             IMG = CardTypes.Values.ToArray()[cardType];
         }
 
-        public void Show()
+        public void SetImage()
         {
             if (!matched)
             {
@@ -136,18 +136,6 @@ namespace Projects
                 default:
                     Console.WriteLine("Invalid image number");
                     break;
-            }
-        }
-
-        public void Hide()
-        {
-            if (matched)
-            {
-                img.ImageSource = imgBlank.ImageSource;
-            }
-            else
-            {
-                img.ImageSource = imgBack.ImageSource;
             }
         }
         
