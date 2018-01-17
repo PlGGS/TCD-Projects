@@ -19,8 +19,8 @@ namespace Projects
     /// </summary>
     public partial class frmWumpus : Window
     {
-        int currentRoom = 1; //the index of the room the player is in
-        Room[] rooms = new Room[21]; //the rooms in the caves 
+        int currentRoom = 0; //the index of the room the player is in
+        Room[] rooms = new Room[20]; //the rooms in the caves 
 
         public void Run()
         {
@@ -28,7 +28,7 @@ namespace Projects
             //TODO: Put your name here
             WriteLine("Welcome to Hunt the Wumpus.");
             WriteLine("C# WPF version by Blake Boris.");
-            WriteLine();
+            WriteLine("");
 
             while (true)
             {
@@ -56,7 +56,7 @@ namespace Projects
         /// </summary>
         public void SetupRooms()
         {
-            for (int i = 0; i < 21; i++)
+            for (int i = 0; i < 20; i++)
             {
                 rooms[i] = new Room(this);
                 rooms[i].name = i.ToString(); ;
@@ -94,26 +94,22 @@ namespace Projects
             Random rand = new Random();
             int r;
 
-            //TODO - Use the comments below as a guide to setup the game
+            for (int i = 0; i < rooms.Length; i++)
+            {
+                rooms[i].Reset();
+            }
 
-            //Use a for loop to call the Reset function on all the rooms
+            rooms[rand.Next(0, 19)].hasWumpus = true;
+            rooms[rand.Next(0, 19)].hasPit = true;
+            rooms[rand.Next(0, 19)].hasPit = true;
+            rooms[rand.Next(0, 19)].hasBats = true;
+            rooms[rand.Next(0, 19)].hasBats = true;
 
-            //Pick a random number 1 - 20 and set the wumpus flag in that room
-
-            //Pick a random number 1 - 20 and set the pit flag in that room
-
-            //Pick a random number 1 - 20 and set the pit flag in that room
-
-            //Pick a random number 1 - 20 and set the bat flag in that room
-
-            //Pick a random number 1 - 20 and set the bat flag in that room
-
-            //Use a do-while loop to place the player. We need
-            //to loop until the player is not in a room with a pit
-            //or the wumpus
-
-
-
+            do
+            {
+                r = rand.Next(0, 19);
+                currentRoom = r;
+            } while (rooms[r].hasWumpus || rooms[r].hasPit);
         }
 
         /// <summary>
@@ -157,8 +153,15 @@ namespace Projects
         /// <param name="newRoom"></param>
         void Move(int newRoom)
         {
-            //TODO Complete this function using the flowchart
-            //in the PDF
+            if (rooms[newRoom].hasWumpus)
+            {
+                WriteLine("Oh no! You've been eaten by the wild Carso- I mean Wumpus!");
+                //TODO play again messagebox?
+            }
+            else if (rooms[newRoom].hasPit)
+            {
+                WriteLine("fall or something blah do this later")
+            }
         }
 
         void Shoot(int r)
