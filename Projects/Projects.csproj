@@ -161,6 +161,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmWumpus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmTemperature.xaml.cs">
@@ -174,6 +178,9 @@
     </Compile>
     <Compile Include="frmTwentyOne.xaml.cs">
       <DependentUpon>frmTwentyOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmWumpus.xaml.cs">
+      <DependentUpon>frmWumpus.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

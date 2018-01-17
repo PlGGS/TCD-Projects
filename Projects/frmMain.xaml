@@ -66,5 +66,6 @@
         <Button x:Name="btnCards" Content="Cards" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="735,0,-210,0"/>
         <Button x:Name="btnBlackJack" Content="BlackJack" HorizontalAlignment="Left" Margin="735,25,-210,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnEvilClutches" Content="Evil Clutches" HorizontalAlignment="Left" Margin="735,50,-210,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnWumpus" Content="Hunt the Wumpus" HorizontalAlignment="Left" Margin="735,75,0,0" VerticalAlignment="Top" Width="100" Click="btnWumpus_Click"/>
     </Grid>
 </Window>

@@ -116,5 +116,11 @@ namespace Projects
             frmConcentration frmConcentration = new frmConcentration();
             frmConcentration.Show();
         }
+
+        private void btnWumpus_Click(object sender, RoutedEventArgs e)
+        {
+            frmWumpus frmWumpus = new frmWumpus();
+            frmWumpus.Show();
+        }
     }
 }
