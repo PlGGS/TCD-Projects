@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="frmWumpus" Height="363.395" Width="510.061" Loaded="Window_Loaded">
     <Grid>
-        <ListBox Name="lbxGameText" HorizontalAlignment="Left" Height="312" Margin="10,10,0,0" VerticalAlignment="Top" Width="482">
+        <ListBox Name="lbxGameText" HorizontalAlignment="Left" Height="289" Margin="10,10,0,0" VerticalAlignment="Top" Width="482">
             <ListBoxItem Content="Welcome to Hunt the Wumpus!"/>
         </ListBox>
+        <TextBox Name="txtInput" Height="23" TextWrapping="Wrap" Text="" Margin="10,298,10,10" AcceptsReturn="False" KeyUp="txtInput_KeyUp"/>
     </Grid>
 </Window>

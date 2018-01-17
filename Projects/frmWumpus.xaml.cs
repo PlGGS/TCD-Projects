@@ -260,5 +260,38 @@ namespace Projects
             SetupRooms();
             ResetGame();
         }
+
+        private void txtInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            string command = "";
+
+            if (e.Key == Key.Return)
+            {
+                if (txtInput.Text == "" || txtInput.Text == null)
+                {
+                    WriteLine("Please enter a command.");
+                }
+                else if (txtInput.Text.Substring(0, 1) == "m")
+                {
+                    //split text at space and move to selected room (make sure to check for invalid room)
+                }
+                else if (txtInput.Text.Substring(0, 1) == "s")
+                {
+                    //split text at space and shoot at selected room (make sure to check for invalid room)
+                }
+                else if (txtInput.Text.Substring(0, 1) == "q")
+                {
+                    this.Close();
+                }
+                else if (txtInput.Text.Substring(0, 1) == "d")
+                {
+                    DumpGame();
+                }
+                else
+                {
+                    WriteLine($"I don't understand {txtInput.Text}.");
+                }
+            }
+        }
     }
 }
