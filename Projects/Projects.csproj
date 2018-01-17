@@ -89,6 +89,7 @@
     <Compile Include="frmStopLight.xaml.cs">
       <DependentUpon>frmStopLight.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Room.cs" />
     <Page Include="frmConcentration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
