@@ -21,6 +21,7 @@ namespace Projects
     {
         int currentRoom = 0; //the index of the room the player is in
         Room[] rooms = new Room[20]; //the rooms in the caves 
+        Random rnd = new Random();
 
         public void Run()
         {
@@ -91,7 +92,6 @@ namespace Projects
         /// </summary>
         void ResetGame()
         {
-            Random rand = new Random();
             int r;
 
             for (int i = 0; i < rooms.Length; i++)
@@ -99,15 +99,15 @@ namespace Projects
                 rooms[i].Reset();
             }
 
-            rooms[rand.Next(0, 19)].hasWumpus = true;
-            rooms[rand.Next(0, 19)].hasPit = true;
-            rooms[rand.Next(0, 19)].hasPit = true;
-            rooms[rand.Next(0, 19)].hasBats = true;
-            rooms[rand.Next(0, 19)].hasBats = true;
+            rooms[rnd.Next(0, 19)].hasWumpus = true;
+            rooms[rnd.Next(0, 19)].hasPit = true;
+            rooms[rnd.Next(0, 19)].hasPit = true;
+            rooms[rnd.Next(0, 19)].hasBats = true;
+            rooms[rnd.Next(0, 19)].hasBats = true;
 
             do
             {
-                r = rand.Next(0, 19);
+                r = rnd.Next(0, 19);
                 currentRoom = r;
             } while (rooms[r].hasWumpus || rooms[r].hasPit);
         }
@@ -160,15 +160,29 @@ namespace Projects
             }
             else if (rooms[newRoom].hasPit)
             {
-                WriteLine("fall or something blah do this later")
+                WriteLine("Oh no! You've fallen down quite the large pit and are doomed to starve!");
+                //TODO play again messagebox?
+            }
+            else if (rooms[newRoom].hasBats)
+            {
+                WriteLine("Oh no! The room you entered has bats!");
+                WriteLine("The bats fly you to another room...");
+                Move(rnd.Next(0, 19));
             }
         }
 
-        void Shoot(int r)
+        void Shoot(int newRoom)
         {
-            //TODO Complete this function based on the flowchart in the PDF
-
-
+            if (rooms[newRoom].hasWumpus)
+            {
+                WriteLine("Boom! You did it! You killed the mighty Wumpus!");
+                WriteLine("You win!");
+            }
+            else
+            {
+                WriteLine("The mighty wumpus enters the room you're in and devours you!");
+                WriteLine("You lose!");
+            }
         }
 
         /// <summary>
