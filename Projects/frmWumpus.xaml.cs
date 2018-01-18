@@ -73,7 +73,7 @@ namespace Projects
             SetNeighbors(14, 4, 13, 15);
             SetNeighbors(15, 6, 14, 16);
             SetNeighbors(16, 15, 17, 20);
-            SetNeighbors(17, 7, 18, 18);
+            SetNeighbors(17, 7, 16, 18);
             SetNeighbors(18, 9, 17, 19);
             SetNeighbors(19, 11, 18, 20);
             SetNeighbors(20, 13, 16, 19);
@@ -214,20 +214,30 @@ namespace Projects
                 {
                     Write(text);
                     lbxGameText.Items.Add("");
-                    ;
                 }
-            }
-
-            if (text != "")
-            {
-                lbxGameText.Items.Add(text);
-                lbxGameText.Items.Add("");
-                ScrollToBottom();
+                else
+                {
+                    WriteActualTextToLine();
+                }
             }
             else
             {
-                lbxGameText.Items.Add(text);
-                ScrollToBottom();
+                WriteActualTextToLine();
+            }
+
+            void WriteActualTextToLine()
+            {
+                if (text != "")
+                {
+                    lbxGameText.Items.Add(text);
+                    lbxGameText.Items.Add("");
+                    ScrollToBottom();
+                }
+                else
+                {
+                    lbxGameText.Items.Add(text);
+                    ScrollToBottom();
+                }
             }
         }
 
@@ -337,9 +347,9 @@ namespace Projects
                 {
                     WriteLine($"I don't understand {txtInput.Text}.");
                 }
-            }
 
-            txtInput.Text = "";
+                txtInput.Text = "";
+            }
         }
     }
 }
