@@ -25,17 +25,11 @@ namespace Projects
 
         public void Run()
         {
-
-            //TODO: Put your name here
             WriteLine("Welcome to Hunt the Wumpus.");
             WriteLine("C# WPF version by Blake Boris.");
             WriteLine();
-
-            while (true)
-            {
-                //TODO Write the main game loop using the flowchart in the PDF
-
-            }
+            rooms[currentRoom].Print();
+            WriteLine("Move, Shoot, or Quit? (m/s/q)");
         }
 
         /// <summary>
@@ -60,7 +54,7 @@ namespace Projects
             for (int i = 1; i <= 20; i++)
             {
                 rooms[i] = new Room(this);
-                rooms[i].name = i.ToString(); ;
+                rooms[i].num = i;
             }
 
             SetNeighbors(1, 2, 5, 8);
@@ -83,7 +77,6 @@ namespace Projects
             SetNeighbors(18, 9, 17, 19);
             SetNeighbors(19, 11, 18, 20);
             SetNeighbors(20, 13, 16, 19);
-
         }
 
         /// <summary>
@@ -118,6 +111,8 @@ namespace Projects
         /// <param name="newRoom"></param>
         void Move(int newRoom)
         {
+            currentRoom = newRoom;
+
             if (rooms[newRoom].hasWumpus)
             {
                 WriteLine("Oh no! You've been eaten by the wild Carso- I mean Wumpus!");
@@ -133,6 +128,10 @@ namespace Projects
                 WriteLine("Oh no! The room you entered has bats!");
                 WriteLine("The bats fly you to another room...");
                 Move(rnd.Next(1, 20));
+            }
+            else
+            {
+                rooms[currentRoom].Print();
             }
         }
 
@@ -159,7 +158,7 @@ namespace Projects
         {
             for (int i = 0; i < 3; i++)
             {
-                int val = Convert.ToInt32(rooms[currentRoom].neighbors[i].name);
+                int val = rooms[currentRoom].neighbors[i].num;
 
                 if (val == r)
                     return true;
@@ -195,7 +194,6 @@ namespace Projects
             //TODO - ask the player to play again
             //if the answer is 'y' call ResetGame()
             //otherwise, call Environment.Exit(0);
-
         }
 
         public frmWumpus()
@@ -210,24 +208,26 @@ namespace Projects
 
         public void WriteLine(string text = "")
         {
-            if (lbxGameText.Items.GetItemAt(lbxGameText.Items.Count - 1).ToString() == "")
+            if (lbxGameText.Items.Count > 0)
             {
-                Write(text);
+                if (lbxGameText.Items.GetItemAt(lbxGameText.Items.Count - 1).ToString() == "")
+                {
+                    Write(text);
+                    lbxGameText.Items.Add("");
+                    ;
+                }
+            }
+
+            if (text != "")
+            {
+                lbxGameText.Items.Add(text);
                 lbxGameText.Items.Add("");
+                ScrollToBottom();
             }
             else
             {
-                if (text != "")
-                {
-                    lbxGameText.Items.Add(text);
-                    lbxGameText.Items.Add("");
-                    ScrollToBottom();
-                }
-                else
-                {
-                    lbxGameText.Items.Add(text);
-                    ScrollToBottom();
-                }
+                lbxGameText.Items.Add(text);
+                ScrollToBottom();
             }
         }
 
@@ -251,6 +251,7 @@ namespace Projects
         {
             SetupRooms();
             ResetGame();
+            Run();
         }
 
         private void txtInput_KeyUp(object sender, KeyEventArgs e)
@@ -263,11 +264,66 @@ namespace Projects
                 }
                 else if (txtInput.Text.Substring(0, 1) == "m")
                 {
-                    //split text at space and move to selected room (make sure to check for invalid room)
+                    int newRoom = 0;
+                    bool moved = false;
+
+                    try
+                    {
+                        newRoom = Convert.ToInt32(txtInput.Text.Split(' ')[1]);
+                    }
+                    catch (Exception)
+                    {
+                        WriteLine("Please enter a neighboring room number to move to.");
+                    }
+
+                    if (newRoom != 0)
+                    {
+                        for (int i = 0; i < rooms[currentRoom].neighbors.Length; i++)
+                        {
+                            if (rooms[currentRoom].neighbors[i].num == newRoom)
+                            {
+                                Move(newRoom);
+                                moved = true;
+                            }
+                        }
+
+                        if (moved == false)
+                        {
+                            WriteLine("Please enter a neighboring room number to move to.");
+                        }
+                    }
                 }
                 else if (txtInput.Text.Substring(0, 1) == "s")
                 {
                     //split text at space and shoot at selected room (make sure to check for invalid room)
+                    int newRoom = 0;
+                    bool shot = false;
+
+                    try
+                    {
+                        newRoom = Convert.ToInt32(txtInput.Text.Split(' ')[1]);
+                    }
+                    catch (Exception)
+                    {
+                        WriteLine("Please enter a neighboring room number to shoot into.");
+                    }
+
+                    if (newRoom != 0)
+                    {
+                        for (int i = 0; i < rooms[currentRoom].neighbors.Length; i++)
+                        {
+                            if (rooms[currentRoom].neighbors[i].num == newRoom)
+                            {
+                                Shoot(newRoom);
+                                shot = true;
+                            }
+                        }
+
+                        if (shot == false)
+                        {
+                            WriteLine("Please enter a neighboring room number to shoot into.");
+                        }
+                    }
                 }
                 else if (txtInput.Text.Substring(0, 1) == "q")
                 {
@@ -282,6 +338,8 @@ namespace Projects
                     WriteLine($"I don't understand {txtInput.Text}.");
                 }
             }
+
+            txtInput.Text = "";
         }
     }
 }
