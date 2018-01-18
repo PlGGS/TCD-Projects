@@ -20,7 +20,7 @@ namespace Projects
     public partial class frmWumpus : Window
     {
         int currentRoom = 0; //the index of the room the player is in
-        Room[] rooms = new Room[20]; //the rooms in the caves 
+        Room[] rooms = new Room[21]; //the rooms in the caves 
         Random rnd = new Random();
 
         public void Run()
@@ -29,7 +29,7 @@ namespace Projects
             //TODO: Put your name here
             WriteLine("Welcome to Hunt the Wumpus.");
             WriteLine("C# WPF version by Blake Boris.");
-            WriteLine("");
+            WriteLine();
 
             while (true)
             {
@@ -57,7 +57,7 @@ namespace Projects
         /// </summary>
         public void SetupRooms()
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 1; i <= 20; i++)
             {
                 rooms[i] = new Room(this);
                 rooms[i].name = i.ToString(); ;
@@ -94,59 +94,24 @@ namespace Projects
         {
             int r;
 
-            for (int i = 0; i < rooms.Length; i++)
+            for (int i = 1; i < rooms.Length; i++)
             {
                 rooms[i].Reset();
             }
 
-            rooms[rnd.Next(0, 19)].hasWumpus = true;
-            rooms[rnd.Next(0, 19)].hasPit = true;
-            rooms[rnd.Next(0, 19)].hasPit = true;
-            rooms[rnd.Next(0, 19)].hasBats = true;
-            rooms[rnd.Next(0, 19)].hasBats = true;
+            rooms[rnd.Next(1, 20)].hasWumpus = true;
+            rooms[rnd.Next(1, 20)].hasPit = true;
+            rooms[rnd.Next(1, 20)].hasPit = true;
+            rooms[rnd.Next(1, 20)].hasBats = true;
+            rooms[rnd.Next(1, 20)].hasBats = true;
 
             do
             {
-                r = rnd.Next(0, 19);
+                r = rnd.Next(1, 20);
                 currentRoom = r;
             } while (rooms[r].hasWumpus || rooms[r].hasPit);
         }
-
-        /// <summary>
-        /// Reads a char from the console
-        /// If not char is entered, ' ' is returned
-        /// </summary>
-        /// <returns></returns>
-        char ReadChar()
-        {
-            string s = Console.ReadLine();
-            if (s.Length > 0)
-            {
-                return s[0];
-            }
-            return ' ';
-        }
-
-        /// <summary>
-        /// Reads an integer from the console
-        /// If the input is not a valid it, -1 is returned
-        /// </summary>
-        /// <returns></returns>
-        int ReadInt()
-        {
-            Console.WriteLine("Which room?");
-
-            string s = Console.ReadLine();
-            try
-            {
-                return Convert.ToInt32(s);
-            }
-            catch
-            {
-                return -1;
-            }
-        }
-
+        
         /// <summary>
         /// Moves the player into newRoom
         /// </summary>
@@ -167,7 +132,7 @@ namespace Projects
             {
                 WriteLine("Oh no! The room you entered has bats!");
                 WriteLine("The bats fly you to another room...");
-                Move(rnd.Next(0, 19));
+                Move(rnd.Next(1, 20));
             }
         }
 
@@ -192,7 +157,6 @@ namespace Projects
         /// <returns></returns>
         bool IsNeighbor(int r)
         {
-
             for (int i = 0; i < 3; i++)
             {
                 int val = Convert.ToInt32(rooms[currentRoom].neighbors[i].name);
@@ -212,14 +176,14 @@ namespace Projects
         {
             for (int i = 1; i < rooms.Length; i++)
             {
-                Console.Write("Room " + i + ":");
+                Write("Room " + i + ":");
                 if (rooms[i].hasBats)
-                    Console.Write(" bats");
+                    Write(" bats");
                 if (rooms[i].hasPit)
-                    Console.Write(" pit");
+                    Write(" pit");
                 if (rooms[i].hasWumpus)
-                    Console.Write(" wumpus");
-                Console.WriteLine("");
+                    Write(" wumpus");
+                WriteLine();
             }
         }
 
@@ -244,15 +208,43 @@ namespace Projects
             lbxGameText.ScrollIntoView(lbxGameText.Items[lbxGameText.Items.Count - 1]);
         }
 
-        public void WriteLine(string text)
+        public void WriteLine(string text = "")
         {
-            lbxGameText.Items.Add(text);
-            ScrollToBottom();
+            if (lbxGameText.Items.GetItemAt(lbxGameText.Items.Count - 1).ToString() == "")
+            {
+                Write(text);
+                lbxGameText.Items.Add("");
+            }
+            else
+            {
+                if (text != "")
+                {
+                    lbxGameText.Items.Add(text);
+                    lbxGameText.Items.Add("");
+                    ScrollToBottom();
+                }
+                else
+                {
+                    lbxGameText.Items.Add(text);
+                    ScrollToBottom();
+                }
+            }
         }
 
         public void Write(string text)
         {
-            lbxGameText.Items.Add(text);
+            if (lbxGameText.Items.Count > 0)
+            {
+                string oldItem = lbxGameText.Items.GetItemAt(lbxGameText.Items.Count - 1).ToString();
+                lbxGameText.Items.RemoveAt(lbxGameText.Items.Count - 1);
+                lbxGameText.Items.Add(oldItem + text);
+                ScrollToBottom();
+            }
+            else
+            {
+                lbxGameText.Items.Add(text);
+                ScrollToBottom();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -263,8 +255,6 @@ namespace Projects
 
         private void txtInput_KeyUp(object sender, KeyEventArgs e)
         {
-            string command = "";
-
             if (e.Key == Key.Return)
             {
                 if (txtInput.Text == "" || txtInput.Text == null)
