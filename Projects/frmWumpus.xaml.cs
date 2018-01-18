@@ -116,12 +116,12 @@ namespace Projects
             if (rooms[newRoom].hasWumpus)
             {
                 WriteLine("Oh no! You've been eaten by the wild Carso- I mean Wumpus!");
-                //TODO play again messagebox?
+                PlayAgain();
             }
             else if (rooms[newRoom].hasPit)
             {
                 WriteLine("Oh no! You've fallen down quite the large pit and are doomed to starve!");
-                //TODO play again messagebox?
+                PlayAgain();
             }
             else if (rooms[newRoom].hasBats)
             {
@@ -141,11 +141,13 @@ namespace Projects
             {
                 WriteLine("Boom! You did it! You killed the mighty Wumpus!");
                 WriteLine("You win!");
+                PlayAgain();
             }
             else
             {
                 WriteLine("The mighty wumpus enters the room you're in and devours you!");
                 WriteLine("You lose!");
+                PlayAgain();
             }
         }
 
@@ -168,7 +170,7 @@ namespace Projects
         }
 
         /// <summary>
-        /// This function dumps the rooms to the console
+        /// Dumps the rooms to the console
         /// for testing/debugging
         /// </summary>
         void DumpGame()
@@ -187,13 +189,22 @@ namespace Projects
         }
 
         /// <summary>
-        /// Asks the player 
+        /// Asks the player whether or not they'd like to play again
         /// </summary>
         void PlayAgain()
         {
-            //TODO - ask the player to play again
-            //if the answer is 'y' call ResetGame()
-            //otherwise, call Environment.Exit(0);
+            MessageBoxResult playAgain = MessageBox.Show("Would you like to play again?", "Hunt the Wumpus", MessageBoxButton.YesNo);
+
+            if (playAgain == MessageBoxResult.Yes)
+            {
+                frmWumpus frmWumpus = new frmWumpus();
+                frmWumpus.Show();
+                this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         public frmWumpus()
