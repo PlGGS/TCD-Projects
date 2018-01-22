@@ -8,7 +8,7 @@ namespace Projects
 {
     class Room
     {
-        public string name;
+        public int num;
         public bool hasPit = false;
         public bool hasBats = false;
         public bool hasWumpus = false;
@@ -34,11 +34,11 @@ namespace Projects
 
         public void Print()
         {
-            frmWumpus.WriteLine("You are in room  " + name);
+            frmWumpus.WriteLine("You are in room  " + num);
             frmWumpus.WriteLine("There are passages to rooms " +
-                neighbors[0].name + ", " +
-                neighbors[1].name + ", and " +
-                neighbors[2].name
+                neighbors[0].num + ", " +
+                neighbors[1].num + ", and " +
+                neighbors[2].num
                 );
 
             if (HasDraft())
