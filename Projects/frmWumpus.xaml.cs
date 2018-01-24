@@ -22,6 +22,12 @@ namespace Projects
         int currentRoom = 0; //the index of the room the player is in
         Room[] rooms = new Room[21]; //the rooms in the caves 
         Random rnd = new Random();
+        enum RoomThings
+        {
+            Wumpus,
+            Pit,
+            Bats
+        }
 
         public void Run()
         {
@@ -92,11 +98,34 @@ namespace Projects
                 rooms[i].Reset();
             }
 
-            rooms[rnd.Next(1, 20)].hasWumpus = true;
-            rooms[rnd.Next(1, 20)].hasPit = true;
-            rooms[rnd.Next(1, 20)].hasPit = true;
-            rooms[rnd.Next(1, 20)].hasBats = true;
-            rooms[rnd.Next(1, 20)].hasBats = true;
+            PlaceRoomThing(RoomThings.Wumpus, rnd.Next(1, 20));
+            PlaceRoomThing(RoomThings.Pit, rnd.Next(1, 20));
+            PlaceRoomThing(RoomThings.Pit, rnd.Next(1, 20));
+            PlaceRoomThing(RoomThings.Bats, rnd.Next(1, 20));
+            PlaceRoomThing(RoomThings.Bats, rnd.Next(1, 20));
+
+            void PlaceRoomThing(RoomThings thing, int room)
+            {
+                if (rooms[room].hasWumpus == false && rooms[room].hasPit == false && rooms[room].hasBats == false)
+                {
+                    if (thing == RoomThings.Wumpus)
+                    {
+                        rooms[rnd.Next(1, 20)].hasWumpus = true;
+                    }
+                    else if (thing == RoomThings.Pit)
+                    {
+                        rooms[rnd.Next(1, 20)].hasPit = true;
+                    }
+                    else if (thing == RoomThings.Bats)
+                    {
+                        rooms[rnd.Next(1, 20)].hasBats = true;
+                    }
+                }
+                else
+                {
+                    PlaceRoomThing(thing, rnd.Next(1, 20));
+                }
+            }
 
             do
             {
