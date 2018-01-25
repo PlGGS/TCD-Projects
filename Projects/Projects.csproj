@@ -57,6 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Card.cs" />
+    <Compile Include="Cell.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmConcentration.xaml.cs">
       <DependentUpon>frmConcentration.xaml</DependentUpon>
     </Compile>
