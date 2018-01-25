@@ -33,6 +33,7 @@
             this.btnRun = new System.Windows.Forms.Button();
             this.btnStep = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.lblSignature = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timStep
@@ -69,11 +70,21 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // lblSignature
+            // 
+            this.lblSignature.AutoSize = true;
+            this.lblSignature.Location = new System.Drawing.Point(516, 609);
+            this.lblSignature.Name = "lblSignature";
+            this.lblSignature.Size = new System.Drawing.Size(78, 13);
+            this.lblSignature.TabIndex = 3;
+            this.lblSignature.Text = "By: Blake Boris";
+            // 
             // frmLife
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 630);
+            this.Controls.Add(this.lblSignature);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnStep);
             this.Controls.Add(this.btnRun);
@@ -84,6 +95,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLife";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,5 +105,6 @@
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnStep;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label lblSignature;
     }
 }
