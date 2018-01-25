@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Projects
 {
-    class Cell : PictureBox
+    class Cell : Panel
     {
         public bool Alive { get; set; }
         public Point GridSpot { get; set; }

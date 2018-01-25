@@ -40,7 +40,6 @@ namespace Projects
                     cell.GridSpot = new Point(x, y);
                     cell.Size = new Size(cellWidth, cellHeight);
                     cell.TabStop = false;
-                    cell.SizeMode = PictureBoxSizeMode.StretchImage;
                     cell.BorderStyle = BorderStyle.FixedSingle;
                     cell.BackColor = Color.White;
                     cell.Visible = true;
