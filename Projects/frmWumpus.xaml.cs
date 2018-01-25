@@ -110,15 +110,15 @@ namespace Projects
                 {
                     if (thing == RoomThings.Wumpus)
                     {
-                        rooms[rnd.Next(1, 20)].hasWumpus = true;
+                        rooms[room].hasWumpus = true;
                     }
                     else if (thing == RoomThings.Pit)
                     {
-                        rooms[rnd.Next(1, 20)].hasPit = true;
+                        rooms[room].hasPit = true;
                     }
                     else if (thing == RoomThings.Bats)
                     {
-                        rooms[rnd.Next(1, 20)].hasBats = true;
+                        rooms[room].hasBats = true;
                     }
                 }
                 else
