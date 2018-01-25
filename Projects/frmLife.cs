@@ -12,23 +12,24 @@ namespace Projects
 {
     public partial class frmLife : Form
     {
-        int gridWidth = 60;
-        int gridHeight = 60;
-        int cellWidth = 10;
-        int cellHeight = 10;
+        int gridWidth = 30;
+        int gridHeight = 30;
+        int cellWidth = 20;
+        int cellHeight = 20;
         Cell[,] cells;
+        Cell[,] newCells;
         List<Cell> aliveCells = new List<Cell>();
         Random rnd = new Random();
 
         public frmLife()
         {
             InitializeComponent();
-            InitGrid();
+            cells = InitGrid(cells);
         }
 
-        void InitGrid()
+        Cell[,] InitGrid(Cell[,] pCells)
         {
-            cells = new Cell[gridWidth, gridHeight];
+            pCells = new Cell[gridWidth, gridHeight];
 
             for (int y = 0; y < gridHeight; y++)
             {
@@ -44,13 +45,16 @@ namespace Projects
                     cell.BackColor = Color.White;
                     cell.Visible = true;
 
-                    cells[x, y] = cell;
+                    pCells[x, y] = cell;
+
                     Controls.Add(cell);
                     cell.MouseUp += Cell_MouseUp;
                 }
             }
-        }
 
+            return pCells;
+        }
+        
         private void timStep_Tick(object sender, EventArgs e)
         {
             Step();
@@ -72,6 +76,29 @@ namespace Projects
                 CheckNeighborsOfAliveCell(aliveCells[i]);
                 RemoveAliveCellsFromList();
             }
+
+            Evolve();
+        }
+
+        private void Evolve()
+        {
+            newCells = InitGrid(newCells);
+
+            foreach (Cell newCell in newCells)
+            {
+                if (cells[newCell.GridSpot.X, newCell.GridSpot.Y].OnDeathRow)
+                {
+                    newCell.BackColor = Color.LightBlue;
+                }
+                else if (cells[newCell.GridSpot.X, newCell.GridSpot.Y].GonnaSpawn)
+                {
+                    newCell.Alive = true;
+                }
+            }
+
+            cells = newCells;
+            newCells = new Cell[gridWidth, gridHeight];
+            ClearGrid();
         }
 
         void ClearGrid()
@@ -85,14 +112,14 @@ namespace Projects
                 }
             }
 
-            InitGrid();
+            cells = InitGrid(cells);
         }
         
         void RemoveAliveCellsFromList()
         {
             for (int i = 0; i < aliveCells.Count; i++)
             {
-                if (aliveCells[i].Alive == false)
+                if (aliveCells[i].OnDeathRow == true)
                 {
                     aliveCells.Remove(aliveCells[i]);
                 }
@@ -125,10 +152,10 @@ namespace Projects
                     }
                     else
                     {
-                        AddNeighbors(cell);
+                        AddNeighbors(cell.Neighbors[i]);
                         CheckNeighborsOfDeadCell(cell.Neighbors[i]);
                     }
-                    Console.WriteLine($"{i}: {cell.Neighbors[i].Alive}");
+                    Console.WriteLine($"alive cell({cell.GridSpot.X}, {cell.GridSpot.Y})[{i}]: {cell.Neighbors[i].Alive}");
                 }
             }
 
@@ -137,13 +164,15 @@ namespace Projects
 
             if (aliveNeighbors < 2)
             {
-                cell.Alive = false;
-                cell.BackColor = Color.LightBlue; //Represents previously alive cell
+                cell.OnDeathRow = true;
             }
             else if (aliveNeighbors > 3)
             {
-                cell.Alive = false;
-                cell.BackColor = Color.LightBlue; //Represents previously alive cell
+                cell.OnDeathRow = true;
+            }
+            else
+            {
+                cell.GonnaSpawn = true;
             }
         }
 
@@ -168,7 +197,7 @@ namespace Projects
 
             if (aliveNeighbors == 3)
             {
-                cell.Alive = true;
+                cell.GonnaSpawn = true;
                 cell.BackColor = Color.Green;
             }
         }

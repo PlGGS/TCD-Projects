@@ -38,6 +38,7 @@
             // 
             // timStep
             // 
+            this.timStep.Interval = 500;
             this.timStep.Tick += new System.EventHandler(this.timStep_Tick);
             // 
             // btnRun
