@@ -122,5 +122,11 @@ namespace Projects
             frmWumpus frmWumpus = new frmWumpus();
             frmWumpus.Show();
         }
+
+        private void btnLife_Click(object sender, RoutedEventArgs e)
+        {
+            frmLife frmLife = new frmLife();
+            frmLife.Show();
+        }
     }
 }
