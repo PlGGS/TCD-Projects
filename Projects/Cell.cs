@@ -28,5 +28,17 @@ namespace Projects
                 neighbors[i] = null;
             }
         }
+
+        public void Reset()
+        {
+            Alive = false;
+            OnDeathRow = false;
+            GonnaSpawn = false;
+
+            for (int i = 0; i < neighbors.Length; i++)
+            {
+                neighbors[i] = null;
+            }
+        }
     }
 }

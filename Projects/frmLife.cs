@@ -16,20 +16,46 @@ namespace Projects
         int gridHeight = 30;
         int cellWidth = 20;
         int cellHeight = 20;
-        Cell[,] cells;
-        Cell[,] newCells;
+        Grid[] grids = new Grid[2];
+        bool currentGrid = false;
+        int cGrid
+        {
+            get
+            {
+                return Convert.ToInt32(currentGrid);
+            }
+            set
+            {
+                currentGrid = Convert.ToBoolean(value);
+                cGrid = Convert.ToInt32(currentGrid);
+            }
+        }
         List<Cell> aliveCells = new List<Cell>();
         Random rnd = new Random();
 
         public frmLife()
         {
             InitializeComponent();
-            cells = InitGrid(cells);
+            InitGrids();
         }
 
-        Cell[,] InitGrid(Cell[,] pCells)
+        void InitGrids()
         {
-            pCells = new Cell[gridWidth, gridHeight];
+            Grid grid0 = new Grid();
+            Grid grid1 = new Grid();
+
+            grid0.Location = new Point(0, 0);
+            grid1.Location = new Point(0, 0);
+            grid0.Size = new Size(gridWidth * cellWidth, gridHeight * cellHeight);
+            grid1.Size = new Size(gridWidth * cellWidth, gridHeight * cellHeight);
+            grid0.TabStop = false;
+            grid1.TabStop = false;
+            grid0.BorderStyle = BorderStyle.FixedSingle;
+            grid1.BorderStyle = BorderStyle.FixedSingle;
+            grid0.BackColor = Color.White;
+            grid1.BackColor = Color.White;
+            grid0.Visible = true; //Swap between visibilty as game steps
+            grid1.Visible = false;
 
             for (int y = 0; y < gridHeight; y++)
             {
@@ -45,16 +71,25 @@ namespace Projects
                     cell.BackColor = Color.White;
                     cell.Visible = true;
 
-                    pCells[x, y] = cell;
+                    grid0.Cells[x, y] = cell;
+                    grid1.Cells[x, y] = cell;
 
-                    Controls.Add(cell);
+                    grid0.Controls.Add(cell);
+                    grid1.Controls.Add(cell);
+
                     cell.MouseUp += Cell_MouseUp;
                 }
             }
 
-            return pCells;
+            grids[0] = grid0;
+            grids[1] = grid1;
         }
         
+        void SwitchCurrentGrid()
+        {
+            cGrid = Convert.ToInt32(!currentGrid);
+        }
+
         private void timStep_Tick(object sender, EventArgs e)
         {
             Step();
@@ -62,7 +97,7 @@ namespace Projects
 
         void Step()
         {
-            foreach (Cell cell in cells)
+            foreach (Cell cell in grids[cGrid].Cells)
             {
                 if (cell.Alive)
                 {
@@ -74,7 +109,7 @@ namespace Projects
             {
                 AddNeighbors(aliveCells[i]);
                 CheckNeighborsOfAliveCell(aliveCells[i]);
-                RemoveAliveCellsFromList();
+                aliveCells.Clear();
             }
 
             Evolve();
@@ -82,60 +117,32 @@ namespace Projects
 
         private void Evolve()
         {
-            newCells = InitGrid(newCells);
-
-            foreach (Cell newCell in newCells)
+            foreach (Cell newCell in grids[cGrid].Cells)
             {
-                if (cells[newCell.GridSpot.X, newCell.GridSpot.Y].OnDeathRow)
+                if (newCell.OnDeathRow)
                 {
-                    newCell.BackColor = Color.LightBlue;
+                    grids[Convert.ToInt32(!currentGrid)].Cells[newCell.GridSpot.X, newCell.GridSpot.Y].BackColor = Color.LightBlue;
                 }
-                else if (cells[newCell.GridSpot.X, newCell.GridSpot.Y].GonnaSpawn)
+                else if (newCell.GonnaSpawn)
                 {
-                    newCell.Alive = true;
+                    grids[Convert.ToInt32(!currentGrid)].Cells[newCell.GridSpot.X, newCell.GridSpot.Y].Alive = true;
                 }
             }
 
-            cells = newCells;
-            newCells = new Cell[gridWidth, gridHeight];
-            ClearGrid();
-        }
-
-        void ClearGrid()
-        {
-            for (int y = 0; y < gridHeight; y++)
-            {
-                for (int x = 0; x < gridWidth; x++)
-                {
-                    Controls.Remove(cells[x, y]);
-                    cells[x, y] = new Cell(false);
-                }
-            }
-
-            cells = InitGrid(cells);
+            grids[cGrid].Clear();
+            SwitchCurrentGrid();
         }
         
-        void RemoveAliveCellsFromList()
-        {
-            for (int i = 0; i < aliveCells.Count; i++)
-            {
-                if (aliveCells[i].OnDeathRow == true)
-                {
-                    aliveCells.Remove(aliveCells[i]);
-                }
-            }
-        }
-
         private void AddNeighbors(Cell cell)
         {
-            try { cell.Neighbors[0] = cells[cell.GridSpot.X - 1, cell.GridSpot.Y - 1]; } catch (Exception) { }
-            try { cell.Neighbors[1] = cells[cell.GridSpot.X, cell.GridSpot.Y - 1]; } catch (Exception) { }
-            try { cell.Neighbors[2] = cells[cell.GridSpot.X + 1, cell.GridSpot.Y - 1]; } catch (Exception) { }
-            try { cell.Neighbors[3] = cells[cell.GridSpot.X - 1, cell.GridSpot.Y]; } catch (Exception) { }
-            try { cell.Neighbors[4] = cells[cell.GridSpot.X + 1, cell.GridSpot.Y]; } catch (Exception) { }
-            try { cell.Neighbors[5] = cells[cell.GridSpot.X - 1, cell.GridSpot.Y + 1]; } catch (Exception) { }
-            try { cell.Neighbors[6] = cells[cell.GridSpot.X, cell.GridSpot.Y + 1]; } catch (Exception) { }
-            try { cell.Neighbors[7] = cells[cell.GridSpot.X + 1, cell.GridSpot.Y + 1]; } catch (Exception) { }
+            try { cell.Neighbors[0] = grids[cGrid].Cells[cell.GridSpot.X - 1, cell.GridSpot.Y - 1]; } catch (Exception) { }
+            try { cell.Neighbors[1] = grids[cGrid].Cells[cell.GridSpot.X, cell.GridSpot.Y - 1]; } catch (Exception) { }
+            try { cell.Neighbors[2] = grids[cGrid].Cells[cell.GridSpot.X + 1, cell.GridSpot.Y - 1]; } catch (Exception) { }
+            try { cell.Neighbors[3] = grids[cGrid].Cells[cell.GridSpot.X - 1, cell.GridSpot.Y]; } catch (Exception) { }
+            try { cell.Neighbors[4] = grids[cGrid].Cells[cell.GridSpot.X + 1, cell.GridSpot.Y]; } catch (Exception) { }
+            try { cell.Neighbors[5] = grids[cGrid].Cells[cell.GridSpot.X - 1, cell.GridSpot.Y + 1]; } catch (Exception) { }
+            try { cell.Neighbors[6] = grids[cGrid].Cells[cell.GridSpot.X, cell.GridSpot.Y + 1]; } catch (Exception) { }
+            try { cell.Neighbors[7] = grids[cGrid].Cells[cell.GridSpot.X + 1, cell.GridSpot.Y + 1]; } catch (Exception) { }
         }
 
         void CheckNeighborsOfAliveCell(Cell cell)
@@ -223,7 +230,7 @@ namespace Projects
         private void btnClear_Click(object sender, EventArgs e)
         {
             timStep.Stop();
-            ClearGrid();
+            grids[cGrid].Clear();
         }
     }
 }
