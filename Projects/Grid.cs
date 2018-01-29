@@ -9,7 +9,8 @@ namespace Projects
 {
     class Grid : Panel
     {
-        public Cell[,] Cells { get { return Cells; } set { Cells = value; } }
+        Cell[,] cells;
+        public Cell[,] Cells { get { return cells; } set { cells = value; } }
 
         public Grid()
         {

@@ -27,7 +27,6 @@ namespace Projects
             set
             {
                 currentGrid = Convert.ToBoolean(value);
-                cGrid = Convert.ToInt32(currentGrid);
             }
         }
         List<Cell> aliveCells = new List<Cell>();
@@ -44,6 +43,8 @@ namespace Projects
             Grid grid0 = new Grid();
             Grid grid1 = new Grid();
 
+            grid0.Cells = new Cell[gridWidth, gridHeight];
+            grid1.Cells = new Cell[gridWidth, gridHeight];
             grid0.Location = new Point(0, 0);
             grid1.Location = new Point(0, 0);
             grid0.Size = new Size(gridWidth * cellWidth, gridHeight * cellHeight);
@@ -70,19 +71,21 @@ namespace Projects
                     cell.BorderStyle = BorderStyle.FixedSingle;
                     cell.BackColor = Color.White;
                     cell.Visible = true;
+                    cell.MouseUp += Cell_MouseUp;
 
                     grid0.Cells[x, y] = cell;
                     grid1.Cells[x, y] = cell;
 
                     grid0.Controls.Add(cell);
                     grid1.Controls.Add(cell);
-
-                    cell.MouseUp += Cell_MouseUp;
                 }
             }
 
             grids[0] = grid0;
             grids[1] = grid1;
+
+            Controls.Add(grid0);
+            Controls.Add(grid1);
         }
         
         void SwitchCurrentGrid()
@@ -212,8 +215,11 @@ namespace Projects
         void Cell_MouseUp(object sender, MouseEventArgs e)
         {
             Cell cell = (Cell)sender;
-            cell.Alive = true;
-            cell.BackColor = Color.Green;
+            if (cell.Visible)
+            {
+                cell.Alive = true;
+                cell.BackColor = Color.Green;
+            }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
