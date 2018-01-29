@@ -62,19 +62,22 @@ namespace Projects
             {
                 for (int x = 0; x < gridWidth; x++)
                 {
-                    Cell cell = new Cell(false);
-
-                    cell.Location = new Point(x * cellWidth, y * cellHeight);
-                    cell.GridSpot = new Point(x, y);
-                    cell.Size = new Size(cellWidth, cellHeight);
-                    cell.TabStop = false;
-                    cell.BorderStyle = BorderStyle.FixedSingle;
-                    cell.BackColor = Color.White;
-                    cell.Visible = true;
+                    Cell cell = new Cell(false)
+                    {
+                        Location = new Point(x * cellWidth, y * cellHeight),
+                        GridSpot = new Point(x, y),
+                        Size = new Size(cellWidth, cellHeight),
+                        TabStop = false,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        BackColor = Color.White,
+                        Visible = true
+                    };
                     cell.MouseUp += Cell_MouseUp;
 
                     grid0.Cells[x, y] = cell;
                     grid1.Cells[x, y] = cell;
+
+                    grid1.Cells[x, y].Refresh();
 
                     grid0.Controls.Add(cell);
                     grid1.Controls.Add(cell);
@@ -83,6 +86,9 @@ namespace Projects
 
             grids[0] = grid0;
             grids[1] = grid1;
+
+            grids[0].Refresh();
+            grids[1].Refresh();
 
             Controls.Add(grid0);
             Controls.Add(grid1);
