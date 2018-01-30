@@ -34,6 +34,7 @@ namespace Projects
             Alive = false;
             OnDeathRow = false;
             GonnaSpawn = false;
+            BackColor = Color.White;
 
             for (int i = 0; i < neighbors.Length; i++)
             {
