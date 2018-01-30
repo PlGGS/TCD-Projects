@@ -188,8 +188,16 @@ namespace Projects
         {
             Cell cell = (Cell)sender;
 
-            cell.Alive = true;
-            cell.BackColor = Color.Green;
+            if (cell.Alive)
+            {
+                cell.Alive = false;
+                cell.BackColor = Color.White;
+            }
+            else
+            {
+                cell.Alive = true;
+                cell.BackColor = Color.Green;
+            }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
