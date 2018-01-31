@@ -96,6 +96,9 @@ namespace Projects
                 {
                     nextGen[oldCell.GridSpot.X, oldCell.GridSpot.Y].Alive = true;
                 }
+
+                nextGen[oldCell.GridSpot.X, oldCell.GridSpot.Y].OnDeathRow = false;
+                nextGen[oldCell.GridSpot.X, oldCell.GridSpot.Y].GonnaSpawn = false;
             }
 
             currentGen = nextGen;
@@ -148,7 +151,7 @@ namespace Projects
             //Console.WriteLine($"Alive Neighbors: {aliveNeighbors}");
             //Console.WriteLine();
 
-            if (aliveNeighbors < 2) //BOTH OF THESE ARE BEING SET TO TRUE WHEN A CELL DIES WTF
+            if (aliveNeighbors < 2)
             {
                 cell.OnDeathRow = true;
             }
