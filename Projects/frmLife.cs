@@ -226,5 +226,19 @@ namespace Projects
         {
             InitGrid();
         }
+
+        private void btnRandom_Click(object sender, EventArgs e)
+        {
+            foreach (Cell cell in currentGen)
+            {
+                if (rnd.Next(0, 10) == 0)
+                {
+                    cell.Alive = true;
+                    cell.BackColor = Color.Blue;
+                }
+            }
+
+            pnlCells.Refresh();
+        }
     }
 }

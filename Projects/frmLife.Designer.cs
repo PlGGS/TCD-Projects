@@ -35,6 +35,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.lblSignature = new System.Windows.Forms.Label();
             this.pnlCells = new System.Windows.Forms.Panel();
+            this.btnRandom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timStep
@@ -88,11 +89,22 @@
             this.pnlCells.Size = new System.Drawing.Size(600, 600);
             this.pnlCells.TabIndex = 4;
             // 
+            // btnRandom
+            // 
+            this.btnRandom.Location = new System.Drawing.Point(243, 600);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(75, 30);
+            this.btnRandom.TabIndex = 5;
+            this.btnRandom.Text = "Random";
+            this.btnRandom.UseVisualStyleBackColor = true;
+            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
+            // 
             // frmLife
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 630);
+            this.Controls.Add(this.btnRandom);
             this.Controls.Add(this.pnlCells);
             this.Controls.Add(this.lblSignature);
             this.Controls.Add(this.btnClear);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label lblSignature;
         private System.Windows.Forms.Panel pnlCells;
+        private System.Windows.Forms.Button btnRandom;
     }
 }
