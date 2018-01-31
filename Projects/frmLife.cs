@@ -148,7 +148,7 @@ namespace Projects
             //Console.WriteLine($"Alive Neighbors: {aliveNeighbors}");
             //Console.WriteLine();
 
-            if (aliveNeighbors < 2)
+            if (aliveNeighbors < 2) //BOTH OF THESE ARE BEING SET TO TRUE WHEN A CELL DIES WTF
             {
                 cell.OnDeathRow = true;
             }
@@ -187,6 +187,8 @@ namespace Projects
         void Cell_MouseUp(object sender, MouseEventArgs e)
         {
             Cell cell = (Cell)sender;
+
+            Console.WriteLine($"Alive: {cell.Alive}, OnDeathRow: {cell.OnDeathRow}, GonnaSpawn: {cell.GonnaSpawn}");
 
             if (cell.Alive)
             {
