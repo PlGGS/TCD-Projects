@@ -18,6 +18,7 @@ namespace Projects
     public partial class frmTicTacToe : Window
     {
         public bool p1Turn = true;
+        public char[,] spots = new char[3, 3];
         public int turns = 0;
 
         public frmTicTacToe()
@@ -25,6 +26,22 @@ namespace Projects
             InitializeComponent();
         }
         
+        /// <summary>
+        /// Sets Labels to their corresponding place in the spots array
+        /// </summary>
+        void SetSpots()
+        {
+            spots[0, 0] = (char)lblTopLeft.Content;
+            spots[1, 0] = (char)lblTop.Content;
+            spots[2, 0] = (char)lblTopRight.Content;
+            spots[0, 1] = (char)lblLeft.Content;
+            spots[1, 1] = (char)lblMid.Content;
+            spots[2, 1] = (char)lblRight.Content;
+            spots[0, 2] = (char)lblBotLeft.Content;
+            spots[1, 2] = (char)lblBot.Content;
+            spots[2, 2] = (char)lblBotRight.Content;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -45,6 +62,7 @@ namespace Projects
         private void lbl_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Label lbl = (Label)sender;
+            turns++;
 
             if (lbl.Content.ToString() == "")
             {
