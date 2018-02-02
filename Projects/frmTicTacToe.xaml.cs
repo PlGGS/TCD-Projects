@@ -78,11 +78,11 @@ namespace Projects
             {
                 if (p1Turn)
                 {
-                    lblTopLeft.Content = " X";
+                    lbl.Content = " X";
                 }
                 else
                 {
-                    lblTopLeft.Content = " O";
+                    lbl.Content = " O";
                 }
                 p1Turn = !p1Turn;
                 TurnText();
@@ -100,12 +100,37 @@ namespace Projects
         {
             int xCount = 0;
             int oCount = 0;
+            
+            void CheckCounts()
+            {
+                if (xCount == 3)
+                {
+                    lblText.Content = "Player 1 has won!";
+                    return;
+                }
+                else if (oCount == 3)
+                {
+                    lblText.Content = "Player 2 has won!";
+                    return;
+                }
+                else if (turns >= 9)
+                {
+                    lblText.Content = "It's a cat's game!";
+                    return;
+                }
+                else
+                {
+                    xCount = 0;
+                    oCount = 0;
+                }
+            }
 
             //check rows
             for (int y = 0; y < 3; y++)
             {
                 for (int x = 0; x < 3; x++)
                 {
+                        Console.WriteLine($"{spots[x, y]}");
                     if (spots[x, y] != '\0' && spots[x, y] == 'X')
                     {
                         xCount++;
@@ -117,7 +142,9 @@ namespace Projects
                     }
                 }
             }
-            
+
+            CheckCounts();
+
             //check columns
             for (int x = 0; x < 3; x++)
             {
@@ -135,20 +162,42 @@ namespace Projects
                 }
             }
 
-            //TODO check diagonally
+            CheckCounts();
 
-            if (xCount == 3)
+            //check topleft to botright
+            for (int xy = 0; xy < 3; xy++)
             {
-                lblText.Content = "Player 1 has won!";
+                if (spots[xy, xy] != '\0' && spots[xy, xy] == 'X')
+                {
+                    xCount++;
+                }
+
+                if (spots[xy, xy] != '\0' && spots[xy, xy] == 'O')
+                {
+                    oCount++;
+                }
             }
-            else if (oCount == 3)
+
+            CheckCounts();
+
+            //check topright to botleft
+            for (int x = 0; x < 3; x++)
             {
-                lblText.Content = "Player 2 has won!";
+                for (int y = 0; y < 3; y++)
+                {
+                    if (spots[x, y] != '\0' && spots[x, y] == 'X')
+                    {
+                        xCount++;
+                    }
+
+                    if (spots[x, y] != '\0' && spots[x, y] == 'O')
+                    {
+                        oCount++;
+                    }
+                }
             }
-            else if (turns >= 9)
-            {
-                lblText.Content = "It's a cat's game!";
-            }
+
+            CheckCounts();
         }
     }
 }
