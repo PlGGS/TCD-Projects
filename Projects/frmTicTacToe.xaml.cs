@@ -51,12 +51,7 @@ namespace Projects
 
             Console.WriteLine();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            SetSpots();
-        }
-
+        
         private void TurnText()
         {
             if (p1Turn)
@@ -88,6 +83,7 @@ namespace Projects
                 TurnText();
             }
 
+            SetSpots();
             PrintSpots();
 
             if (turns >= 5)
@@ -103,34 +99,48 @@ namespace Projects
             
             void CheckCounts()
             {
+                Console.WriteLine($"x: {xCount}, o: {oCount}");
+                MessageBoxResult playAgain;
+                void PlayAgain()
+                {
+                    if (playAgain == MessageBoxResult.Yes)
+                    {
+                        frmTicTacToe frmTicTacToe = new frmTicTacToe();
+                        frmTicTacToe.Show();
+                        this.Close();
+                    }
+                    else if (playAgain == MessageBoxResult.No)
+                    {
+                        this.Close();
+                    }
+                }
+
                 if (xCount == 3)
                 {
                     lblText.Content = "Player 1 has won!";
-                    return;
+                    playAgain = MessageBox.Show("Player 1 has won! Would you like to play again?", "Tic Tac Toe", MessageBoxButton.YesNoCancel);
+                    PlayAgain();
                 }
                 else if (oCount == 3)
                 {
                     lblText.Content = "Player 2 has won!";
-                    return;
+                    playAgain = MessageBox.Show("Player 2 has won! Would you like to play again?", "Tic Tac Toe", MessageBoxButton.YesNoCancel);
+                    PlayAgain();
                 }
                 else if (turns >= 9)
                 {
                     lblText.Content = "It's a cat's game!";
-                    return;
-                }
-                else
-                {
-                    xCount = 0;
-                    oCount = 0;
+                    playAgain = MessageBox.Show("It's a cat's game! Would you like to play again?", "Tic Tac Toe", MessageBoxButton.YesNoCancel);
+                    PlayAgain();
                 }
             }
 
             //check rows
+            Console.WriteLine($"check rows");
             for (int y = 0; y < 3; y++)
             {
                 for (int x = 0; x < 3; x++)
                 {
-                        Console.WriteLine($"{spots[x, y]}");
                     if (spots[x, y] != '\0' && spots[x, y] == 'X')
                     {
                         xCount++;
@@ -140,12 +150,15 @@ namespace Projects
                     {
                         oCount++;
                     }
+
+                    CheckCounts();
                 }
+                xCount = 0;
+                oCount = 0;
             }
-
-            CheckCounts();
-
+            
             //check columns
+            Console.WriteLine($"check columns");
             for (int x = 0; x < 3; x++)
             {
                 for (int y = 0; y < 3; y++)
@@ -159,12 +172,15 @@ namespace Projects
                     {
                         oCount++;
                     }
+
+                    CheckCounts();
                 }
+                xCount = 0;
+                oCount = 0;
             }
 
-            CheckCounts();
-
             //check topleft to botright
+            Console.WriteLine($"check topleft to botright");
             for (int xy = 0; xy < 3; xy++)
             {
                 if (spots[xy, xy] != '\0' && spots[xy, xy] == 'X')
@@ -176,28 +192,28 @@ namespace Projects
                 {
                     oCount++;
                 }
-            }
 
-            CheckCounts();
+                CheckCounts();
+            }
+            xCount = 0;
+            oCount = 0;
 
             //check topright to botleft
-            for (int x = 0; x < 3; x++)
+            Console.WriteLine($"check topright to botleft");
+            for (int xy = 2; xy > 0; xy--)
             {
-                for (int y = 0; y < 3; y++)
+                if (spots[xy, xy] != '\0' && spots[xy, xy] == 'X')
                 {
-                    if (spots[x, y] != '\0' && spots[x, y] == 'X')
-                    {
-                        xCount++;
-                    }
-
-                    if (spots[x, y] != '\0' && spots[x, y] == 'O')
-                    {
-                        oCount++;
-                    }
+                    xCount++;
                 }
-            }
 
-            CheckCounts();
+                if (spots[xy, xy] != '\0' && spots[xy, xy] == 'O')
+                {
+                    oCount++;
+                }
+
+                CheckCounts();
+            }
         }
     }
 }
