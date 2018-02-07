@@ -90,6 +90,9 @@
     <Compile Include="frmMovingButton.xaml.cs">
       <DependentUpon>frmMovingButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmNested.xaml.cs">
+      <DependentUpon>frmNested.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmPopcorn.xaml.cs">
       <DependentUpon>frmPopcorn.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="frmMovingButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmNested.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

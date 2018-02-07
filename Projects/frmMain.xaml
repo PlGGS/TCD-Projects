@@ -26,7 +26,7 @@
         <Button x:Name="btnSnowman" Content="Snowman" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="210,0,0,0"/>
         <Button x:Name="btnPopcorn" Content="Popcorn" HorizontalAlignment="Left" Margin="210,25,0,0" VerticalAlignment="Top" Width="100" Click="btnPopcorn_Click"/>
         <Button x:Name="btnTopSecretOrders" Content="Top Secret Orders" HorizontalAlignment="Left" Margin="210,50,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="btnNestedLoops" Content="Nested Loops" HorizontalAlignment="Left" Margin="210,75,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnNestedLoops" Content="Nested Loops" HorizontalAlignment="Left" Margin="210,75,0,0" VerticalAlignment="Top" Width="100" Click="btnNestedLoops_Click"/>
         <Button x:Name="btnWhackAMole" Content="Whack A Mole" HorizontalAlignment="Left" Margin="210,100,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnConnectFour" Content="Connect Four" HorizontalAlignment="Left" Margin="210,125,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnConnectFourCPU" Content="Connect Four CPU" HorizontalAlignment="Left" Margin="210,150,0,0" VerticalAlignment="Top" Width="100"/>

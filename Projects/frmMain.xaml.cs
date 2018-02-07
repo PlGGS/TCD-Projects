@@ -134,5 +134,11 @@ namespace Projects
             frmPopcorn frmPopcorn = new frmPopcorn();
             frmPopcorn.Show();
         }
+
+        private void btnNestedLoops_Click(object sender, RoutedEventArgs e)
+        {
+            frmNested frmNested = new frmNested();
+            frmNested.Show();   
+        }
     }
 }
