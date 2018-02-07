@@ -1,0 +1,17 @@
+﻿<Window x:Class="Projects.frmPopcorn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projects"
+        mc:Ignorable="d"
+        Title="frmPopcorn" Height="467" Width="657">
+    <Grid Name="grdMain" Loaded="Grid_Loaded">
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Kernals.png"/>
+        </Grid.Background>
+        <Canvas Name="cvsMain">
+            
+        </Canvas>
+    </Grid>
+</Window>

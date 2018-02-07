@@ -128,5 +128,11 @@ namespace Projects
             frmLife frmLife = new frmLife();
             frmLife.Show();
         }
+
+        private void btnPopcorn_Click(object sender, RoutedEventArgs e)
+        {
+            frmPopcorn frmPopcorn = new frmPopcorn();
+            frmPopcorn.Show();
+        }
     }
 }

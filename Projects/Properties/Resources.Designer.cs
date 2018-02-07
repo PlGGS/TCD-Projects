@@ -335,6 +335,16 @@ namespace Projects.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Kernals {
+            get {
+                object obj = ResourceManager.GetObject("Kernals", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lever {
             get {
                 object obj = ResourceManager.GetObject("lever", resourceCulture);
@@ -396,6 +406,45 @@ namespace Projects.Properties {
         internal static System.IO.UnmanagedMemoryStream payout {
             get {
                 return ResourceManager.GetStream("payout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Pop {
+            get {
+                return ResourceManager.GetStream("Pop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Popped1 {
+            get {
+                object obj = ResourceManager.GetObject("Popped1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Popped2 {
+            get {
+                object obj = ResourceManager.GetObject("Popped2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Popped3 {
+            get {
+                object obj = ResourceManager.GetObject("Popped3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
