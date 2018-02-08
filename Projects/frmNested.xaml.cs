@@ -24,13 +24,32 @@ namespace Projects
             InitializeComponent();
         }
 
-        private void btnRectangle_Click(object sender, RoutedEventArgs e)
+        private void btnRhombus_Click(object sender, RoutedEventArgs e)
         {
             txbMain.Text = "";
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 5; i > 0; i--)
             {
-                for (int o = 0; o < 10; o++)
+                for (int s = 0; s < i; s++)
+                {
+                    txbMain.Text += " ";
+                }
+
+                for (int b = 5; b > i; b--)
+                {
+                    txbMain.Text += "B";
+                }
+                txbMain.Text += "\n";
+            }
+
+            for (int i = 5; i > 0; i--)
+            {
+                for (int s = 5; s > i; s--)
+                {
+                    txbMain.Text += " ";
+                }
+
+                for (int b = 0; b < i; b++)
                 {
                     txbMain.Text += "B";
                 }

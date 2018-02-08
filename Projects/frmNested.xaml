@@ -8,7 +8,7 @@
         Title="frmNested" Height="300" Width="300">
     <Grid>
         <TextBlock Name="txbMain" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="229" Width="272"/>
-        <Button x:Name="btnRectangle" Content="Rectangle" HorizontalAlignment="Left" Margin="16,239,0,0" VerticalAlignment="Top" Width="60" Click="btnRectangle_Click"/>
+        <Button x:Name="btnRhombus" Content="Rhombus" HorizontalAlignment="Left" Margin="16,239,0,0" VerticalAlignment="Top" Width="60" Click="btnRhombus_Click"/>
         <Button x:Name="btnTriangle1" Content="Triangle1" HorizontalAlignment="Left" Margin="81,239,0,0" VerticalAlignment="Top" Width="60" Click="btnTriangle1_Click"/>
         <Button x:Name="btnTriangle2" Content="Triangle2" HorizontalAlignment="Left" Margin="146,239,0,0" VerticalAlignment="Top" Width="60" Click="btnTriangle2_Click"/>
         <Button x:Name="btnTriangle3" Content="Triangle3" HorizontalAlignment="Left" Margin="211,239,0,0" VerticalAlignment="Top" Width="60" Click="btnTriangle3_Click"/>
