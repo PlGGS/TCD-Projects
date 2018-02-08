@@ -140,5 +140,11 @@ namespace Projects
             frmNested frmNested = new frmNested();
             frmNested.Show();   
         }
+
+        private void btnMazeRunner_Click(object sender, RoutedEventArgs e)
+        {
+            frmMazeRunner frmMazeRunner = new frmMazeRunner();
+            frmMazeRunner.Show();
+        }
     }
 }

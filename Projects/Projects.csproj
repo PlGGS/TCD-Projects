@@ -87,6 +87,12 @@
     <Compile Include="frmLife.Designer.cs">
       <DependentUpon>frmLife.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMazeRunner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMazeRunner.Designer.cs">
+      <DependentUpon>frmMazeRunner.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMovingButton.xaml.cs">
       <DependentUpon>frmMovingButton.xaml</DependentUpon>
     </Compile>
