@@ -39,6 +39,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMazeRunner";
             this.Text = "frmMazeRunner";
+            this.Load += new System.EventHandler(this.frmMazeRunner_Load);
             this.ResumeLayout(false);
 
         }

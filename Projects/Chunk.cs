@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projects
 {
-    class Chunk
+    public class Chunk
     {
         public bool Visited = false;
 
@@ -20,6 +20,9 @@ namespace Projects
         public Size Size { get; set; }
         public Rectangle Rect;
 
+        Chunk[] neighbors = new Chunk[8];
+        public Chunk[] Neighbors { get { return neighbors; } set { neighbors = neighbors = value; } }
+
         public Chunk(int x, int y, int width, int height)
         {
             MazeSpot = new Point(x, y);
@@ -31,7 +34,7 @@ namespace Projects
             Rect = new Rectangle(new Point(x, y), new Size(width, height));
             g.FillRectangle(Brushes.DimGray, Rect);
         }
-
+        
         public void Reset()
         {
             Visited = false;
