@@ -10,12 +10,8 @@ namespace Projects
     public class Chunk
     {
         public bool Visited = false;
-
-        public bool WallUp = true;
-        public bool WallDown = true;
-        public bool WallLeft = true;
-        public bool WallRight = true;
-
+        bool[] walls = new bool[4];
+        public bool[] Walls { get { return walls; } set { walls = value; } }
         public Point MazeSpot { get; set; }
         public Size Size { get; set; }
         public Rectangle Rect;
@@ -27,6 +23,15 @@ namespace Projects
         {
             MazeSpot = new Point(x, y);
             Size = new Size(width, height);
+            PlaceWalls();
+        }
+
+        void PlaceWalls()
+        {
+            for (int i = 0; i < walls.Length; i++)
+            {
+                walls[i] = true;
+            }
         }
 
         public void Draw(int x, int y, int width, int height, Graphics g)
@@ -38,10 +43,7 @@ namespace Projects
         public void Reset()
         {
             Visited = false;
-            WallUp = true;
-            WallDown = true;
-            WallLeft = true;
-            WallRight = true;
+            PlaceWalls();
             Neighbors = null;
         }
     }

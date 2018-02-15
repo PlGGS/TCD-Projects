@@ -17,14 +17,14 @@ namespace Projects
         const int chunkHeight = 20;
         const int mazeWidth = 20;
         const int mazeHeight = 20;
-        enum Directions
+        public enum Directions
         {
             Up,
             Down,
             Left,
             Right
         }
-        enum Opposites
+        public enum Opposites
         {
             Down,
             Up,
@@ -78,15 +78,21 @@ namespace Projects
             Reset();
             CurrentChunk = maze[0, 0];
 
-            while (UnvisitedCellsExist())
+            while (UnvisitedChunksExist())
             {
-                Directions nextChunkDir = ChooseRandomNeighborDirection();
-                //TODO remove wall between currentChunk and neighbor
-                CurrentChunk = currentChunk.Neighbors[(int)nextChunkDir];
+                Directions neighborDir = ChooseRandomNeighborDirection(currentChunk);
+                RemoveNeighboringWalls(currentChunk, currentChunk.Neighbors[(int)neighborDir], neighborDir, (Opposites)neighborDir);
+                CurrentChunk = currentChunk.Neighbors[(int)neighborDir];
             }
         }
 
-        private bool UnvisitedCellsExist()
+        private void RemoveNeighboringWalls(Chunk chunk, Chunk neighbor, Directions neighborDir, Opposites chunkDir)
+        {
+            chunk.Walls[(int)neighborDir] = false;
+            neighbor.Walls[(int)chunkDir] = false;
+        }
+
+        private bool UnvisitedChunksExist()
         {
             foreach (Chunk chunk in maze)
             {
@@ -107,13 +113,13 @@ namespace Projects
             try { chunk.Neighbors[3] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y]; } catch (Exception) { }
         }
 
-        Directions ChooseRandomNeighborDirection()
+        Directions ChooseRandomNeighborDirection(Chunk chunk)
         {
             Directions dir = (Directions)rnd.Next(0, 3);
 
-            if (currentChunk.Neighbors[(int)dir].Visited == true)
+            if (chunk.Neighbors[(int)dir].Visited == true)
             {
-                ChooseRandomNeighborDirection();
+                ChooseRandomNeighborDirection(chunk);
             }
 
             return dir;
