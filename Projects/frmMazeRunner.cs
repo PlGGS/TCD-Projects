@@ -22,7 +22,14 @@ namespace Projects
             Up,
             Down,
             Left,
-            RIght
+            Right
+        }
+        enum Opposites
+        {
+            Down,
+            Up,
+            Right,
+            Left
         }
         Chunk[,] maze = new Chunk[mazeWidth, mazeHeight];
         Chunk currentChunk; //TODO reminder to always use public setter for this boi
@@ -73,7 +80,9 @@ namespace Projects
 
             while (UnvisitedCellsExist())
             {
-
+                Directions nextChunkDir = ChooseRandomNeighborDirection();
+                //TODO remove wall between currentChunk and neighbor
+                CurrentChunk = currentChunk.Neighbors[(int)nextChunkDir];
             }
         }
 
@@ -96,15 +105,18 @@ namespace Projects
             try { chunk.Neighbors[1] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1]; } catch (Exception) { }
             try { chunk.Neighbors[2] = maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y - 1]; } catch (Exception) { }
             try { chunk.Neighbors[3] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y]; } catch (Exception) { }
-            try { chunk.Neighbors[4] = maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y]; } catch (Exception) { }
-            try { chunk.Neighbors[5] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y + 1]; } catch (Exception) { }
-            try { chunk.Neighbors[6] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y + 1]; } catch (Exception) { }
-            try { chunk.Neighbors[7] = maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y + 1]; } catch (Exception) { }
         }
 
-        void ChooseRandomNeighbor(Chunk chunk)
+        Directions ChooseRandomNeighborDirection()
         {
-            //TODO generate random number for chunk neighbor
+            Directions dir = (Directions)rnd.Next(0, 3);
+
+            if (currentChunk.Neighbors[(int)dir].Visited == true)
+            {
+                ChooseRandomNeighborDirection();
+            }
+
+            return dir;
         }
 
         private void frmMazeRunner_Load(object sender, EventArgs e)

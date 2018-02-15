@@ -20,7 +20,7 @@ namespace Projects
         public Size Size { get; set; }
         public Rectangle Rect;
 
-        Chunk[] neighbors = new Chunk[8];
+        Chunk[] neighbors = new Chunk[4];
         public Chunk[] Neighbors { get { return neighbors; } set { neighbors = neighbors = value; } }
 
         public Chunk(int x, int y, int width, int height)
@@ -42,6 +42,7 @@ namespace Projects
             WallDown = true;
             WallLeft = true;
             WallRight = true;
+            Neighbors = null;
         }
     }
 }
