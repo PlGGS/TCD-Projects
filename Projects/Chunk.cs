@@ -44,7 +44,20 @@ namespace Projects
         {
             Visited = false;
             PlaceWalls();
-            Neighbors = null;
+            NullNeighbors();
+        }
+
+        private void NullNeighbors()
+        {
+            for (int i = 0; i < neighbors.Length; i++)
+            {
+                neighbors[i] = null;
+            }
+        }
+
+        public void Print()
+        {
+            Console.WriteLine($"MazeSpot: ({MazeSpot.X}, {MazeSpot.Y}), Visited: {Visited}, Walls: {Walls}");
         }
     }
 }

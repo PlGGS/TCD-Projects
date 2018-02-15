@@ -82,7 +82,7 @@ namespace Projects
         {
             Reset();
             CurrentChunk = maze[0, 0];
-
+            
             while (UnvisitedChunksExist())
             {
                 if (ChunkHasUnvisitedNeighbors(currentChunk))
@@ -114,9 +114,12 @@ namespace Projects
         {
             foreach (Chunk neighbor in chunk.Neighbors)
             {
-                if (neighbor.Visited == false)
+                if (neighbor != null)
                 {
-                    return true;
+                    if (neighbor.Visited == false)
+                    {
+                        return true;
+                    }
                 }
             }
 
@@ -126,7 +129,11 @@ namespace Projects
         private void RemoveNeighboringWalls(Chunk chunk, Chunk neighbor, Directions neighborDir, Opposites chunkDir)
         {
             chunk.Walls[(int)neighborDir] = false;
-            neighbor.Walls[(int)chunkDir] = false;
+
+            if (neighbor != null)
+            {
+                neighbor.Walls[(int)chunkDir] = false;
+            }
         }
 
         private bool UnvisitedChunksExist()
@@ -144,17 +151,21 @@ namespace Projects
 
         private void AddNeighbors(Chunk chunk)
         {
-            try { chunk.Neighbors[0] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y - 1]; } catch (Exception) { }
-            try { chunk.Neighbors[1] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1]; } catch (Exception) { }
-            try { chunk.Neighbors[2] = maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y - 1]; } catch (Exception) { }
-            try { chunk.Neighbors[3] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y]; } catch (Exception) { }
+            try { chunk.Neighbors[0] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1]; maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1].Print(); } catch (Exception) { }
+            try { chunk.Neighbors[1] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y + 1]; maze[chunk.MazeSpot.X, chunk.MazeSpot.Y + 1].Print(); } catch (Exception) { }
+            try { chunk.Neighbors[2] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y]; maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y].Print(); } catch (Exception) { }
+            try { chunk.Neighbors[3] = maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y]; maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y].Print(); } catch (Exception) { }
         }
 
         Directions ChooseRandomNeighborDirection(Chunk chunk)
         {
             Directions dir = (Directions)rnd.Next(0, 3);
 
-            if (chunk.Neighbors[(int)dir].Visited == true)
+            if (chunk.Neighbors[(int)dir] == null)
+            {
+                ChooseRandomNeighborDirection(chunk);
+            }
+            else if (chunk.Neighbors[(int)dir].Visited == true)
             {
                 ChooseRandomNeighborDirection(chunk);
             }
