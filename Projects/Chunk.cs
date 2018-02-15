@@ -34,9 +34,9 @@ namespace Projects
             }
         }
 
-        public void Draw(int x, int y, int width, int height, Graphics g)
+        public void Draw(Graphics g)
         {
-            Rect = new Rectangle(new Point(x, y), new Size(width, height));
+            Rect = new Rectangle(MazeSpot, Size);
             g.FillRectangle(Brushes.DimGray, Rect);
         }
         

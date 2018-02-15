@@ -54,6 +54,11 @@ namespace Projects
             LoadChunks();
         }
 
+        private void frmMazeRunner_Load(object sender, EventArgs e)
+        {
+            CreateMaze();
+        }
+
         private void LoadChunks()
         {
             for (int y = 0; y < mazeHeight; y++)
@@ -80,10 +85,42 @@ namespace Projects
 
             while (UnvisitedChunksExist())
             {
-                Directions neighborDir = ChooseRandomNeighborDirection(currentChunk);
-                RemoveNeighboringWalls(currentChunk, currentChunk.Neighbors[(int)neighborDir], neighborDir, (Opposites)neighborDir);
-                CurrentChunk = currentChunk.Neighbors[(int)neighborDir];
+                if (ChunkHasUnvisitedNeighbors(currentChunk))
+                {
+                    Directions neighborDir = ChooseRandomNeighborDirection(currentChunk);
+                    RemoveNeighboringWalls(currentChunk, currentChunk.Neighbors[(int)neighborDir], neighborDir, (Opposites)neighborDir);
+                    CurrentChunk = currentChunk.Neighbors[(int)neighborDir];
+                }
+                else
+                {
+                    CurrentChunk = RandomUnvisitedChunk();
+                }
             }
+        }
+
+        private Chunk RandomUnvisitedChunk()
+        {
+            Chunk chunk = maze[rnd.Next(0, mazeWidth), rnd.Next(0, mazeHeight)];
+
+            if (chunk.Visited == true)
+            {
+                RandomUnvisitedChunk();
+            }
+
+            return chunk; //TODO if this is too time consuming, create a stack of all unvisited cells to choose from
+        }
+
+        private bool ChunkHasUnvisitedNeighbors(Chunk chunk)
+        {
+            foreach (Chunk neighbor in chunk.Neighbors)
+            {
+                if (neighbor.Visited == false)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void RemoveNeighboringWalls(Chunk chunk, Chunk neighbor, Directions neighborDir, Opposites chunkDir)
@@ -123,11 +160,6 @@ namespace Projects
             }
 
             return dir;
-        }
-
-        private void frmMazeRunner_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
