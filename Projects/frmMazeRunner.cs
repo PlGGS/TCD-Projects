@@ -100,14 +100,14 @@ namespace Projects
 
         private Chunk RandomUnvisitedChunk()
         {
-            Chunk chunk = maze[rnd.Next(0, mazeWidth), rnd.Next(0, mazeHeight)];
+            Chunk chunk;
 
-            if (chunk.Visited == true)
+            do
             {
-                RandomUnvisitedChunk();
-            }
-
-            return chunk; //TODO if this is too time consuming, create a stack of all unvisited cells to choose from
+                chunk = maze[rnd.Next(0, mazeWidth), rnd.Next(0, mazeHeight)];
+            } while (chunk.Visited == true);
+            
+            return chunk;
         }
 
         private bool ChunkHasUnvisitedNeighbors(Chunk chunk)
@@ -172,7 +172,7 @@ namespace Projects
 
             do
             {
-                dir = (Directions)rnd.Next(0, 3);
+                dir = (Directions)rnd.Next(0, 4);
             } while (chunk.Neighbors[(int)dir] == null || chunk.Neighbors[(int)dir].Visited == true);
 
             return dir;
