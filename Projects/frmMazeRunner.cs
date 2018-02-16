@@ -87,8 +87,8 @@ namespace Projects
             {
                 if (ChunkHasUnvisitedNeighbors(currentChunk))
                 {
-                    Directions neighborDir = ChooseRandomNeighborDirection(currentChunk);
-                    RemoveNeighboringWalls(currentChunk, currentChunk.Neighbors[(int)neighborDir], neighborDir, (Opposites)neighborDir);
+                    Directions neighborDir = RemoveNeighboringWalls(currentChunk);
+                    currentChunk.Print();
                     CurrentChunk = currentChunk.Neighbors[(int)neighborDir];
                 }
                 else
@@ -126,14 +126,23 @@ namespace Projects
             return false;
         }
 
-        private void RemoveNeighboringWalls(Chunk chunk, Chunk neighbor, Directions neighborDir, Opposites chunkDir)
+        private Directions RemoveNeighboringWalls(Chunk chunk)
         {
-            chunk.Walls[(int)neighborDir] = false;
+            Directions neighborDir;
+            Opposites chunkDir;
+            Chunk neighbor;
 
-            if (neighbor != null)
+            do
             {
-                neighbor.Walls[(int)chunkDir] = false;
-            }
+                neighborDir = ChooseRandomNeighborDirection(currentChunk);
+                chunkDir = (Opposites)neighborDir;
+                neighbor = currentChunk.Neighbors[(int)neighborDir];
+            } while (neighbor == null);
+
+            chunk.Walls[(int)neighborDir] = false;
+            neighbor.Walls[(int)chunkDir] = false;
+
+            return neighborDir;
         }
 
         private bool UnvisitedChunksExist()
@@ -159,16 +168,12 @@ namespace Projects
 
         Directions ChooseRandomNeighborDirection(Chunk chunk)
         {
-            Directions dir = (Directions)rnd.Next(0, 3);
+            Directions dir;
 
-            if (chunk.Neighbors[(int)dir] == null)
+            do
             {
-                ChooseRandomNeighborDirection(chunk);
-            }
-            else if (chunk.Neighbors[(int)dir].Visited == true)
-            {
-                ChooseRandomNeighborDirection(chunk);
-            }
+                dir = (Directions)rnd.Next(0, 3);
+            } while (chunk.Neighbors[(int)dir] == null || chunk.Neighbors[(int)dir].Visited == true);
 
             return dir;
         }
