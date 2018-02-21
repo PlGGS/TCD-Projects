@@ -13,10 +13,10 @@ namespace Projects
     {
         public enum WallTypes
         {
-            Left,
             Top,
-            Right,
-            Bottom
+            Bottom,
+            Left,
+            Right
         };
 
         protected Point _point1;
@@ -58,20 +58,20 @@ namespace Projects
 
                 switch (_type)
                 {
-                    case WallTypes.Left:
-                        _point1 = new Point(_chunkMazeSpot.X * _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height);
-                        _point2 = new Point(_chunkMazeSpot.X * _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height + _chunkSize.Height);
-                        break;
                     case WallTypes.Top:
                         _point1 = new Point(_chunkMazeSpot.X * _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height);
                         _point2 = new Point(_chunkMazeSpot.X * _chunkSize.Width + _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height);
                         break;
-                    case WallTypes.Right:
-                        _point1 = new Point(_chunkMazeSpot.X * _chunkSize.Width + _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height);
-                        _point2 = new Point(_chunkMazeSpot.X * _chunkSize.Width + _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height + _chunkSize.Height);
-                        break;
                     case WallTypes.Bottom:
                         _point1 = new Point(_chunkMazeSpot.X * _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height + _chunkSize.Height);
+                        _point2 = new Point(_chunkMazeSpot.X * _chunkSize.Width + _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height + _chunkSize.Height);
+                        break;
+                    case WallTypes.Left:
+                        _point1 = new Point(_chunkMazeSpot.X * _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height);
+                        _point2 = new Point(_chunkMazeSpot.X * _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height + _chunkSize.Height);
+                        break;
+                    case WallTypes.Right:
+                        _point1 = new Point(_chunkMazeSpot.X * _chunkSize.Width + _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height);
                         _point2 = new Point(_chunkMazeSpot.X * _chunkSize.Width + _chunkSize.Width, _chunkMazeSpot.Y * _chunkSize.Height + _chunkSize.Height);
                         break;
                     default:

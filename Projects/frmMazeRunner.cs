@@ -24,13 +24,6 @@ namespace Projects
             Left,
             Right
         }
-        public enum Opposites
-        {
-            Down,
-            Up,
-            Right,
-            Left
-        }
         Chunk[,] maze = new Chunk[mazeWidth, mazeHeight];
         Chunk currentChunk; //TODO reminder to always use public setter for this boi
         public Chunk CurrentChunk
@@ -43,6 +36,8 @@ namespace Projects
             {
                 currentChunk = value;
                 currentChunk.Visited = true;
+                Console.Write("Current Chunk: ");
+                currentChunk.Print();
                 AddNeighbors(currentChunk);
             }
         }
@@ -66,7 +61,7 @@ namespace Projects
             {
                 for (int x = 0; x < mazeWidth; x++)
                 {
-                    maze[x, y] = new Chunk(x * chunkWidth, y * chunkHeight, chunkWidth, chunkHeight);
+                    maze[x, y] = new Chunk(x, y, chunkWidth, chunkHeight);
                 }
             }
         }
@@ -89,24 +84,23 @@ namespace Projects
                 if (ChunkHasUnvisitedNeighbors(currentChunk))
                 {
                     Directions neighborDir = RemoveNeighboringWalls(currentChunk);
-                    currentChunk.Print();
                     CurrentChunk = currentChunk.Neighbors[(int)neighborDir];
                 }
                 else
                 {
-                    CurrentChunk = RandomUnvisitedChunk();
+                    CurrentChunk = RandomVisitedChunk();
                 }
             }
         }
 
-        private Chunk RandomUnvisitedChunk()
+        private Chunk RandomVisitedChunk()
         {
             Chunk chunk;
 
             do
             {
                 chunk = maze[rnd.Next(0, mazeWidth), rnd.Next(0, mazeHeight)];
-            } while (chunk.Visited == true);
+            } while (chunk.Visited == false);
             
             return chunk;
         }
@@ -119,6 +113,7 @@ namespace Projects
                 {
                     if (neighbor.Visited == false)
                     {
+                        Console.WriteLine($"- -Neighbor Spot{neighbor.MazeSpot}");
                         return true;
                     }
                 }
@@ -130,13 +125,13 @@ namespace Projects
         private Directions RemoveNeighboringWalls(Chunk chunk)
         {
             Directions neighborDir;
-            Opposites chunkDir;
+            Directions chunkDir;
             Chunk neighbor;
 
             do
             {
                 neighborDir = ChooseRandomNeighborDirection(currentChunk);
-                chunkDir = (Opposites)neighborDir;
+                chunkDir = GetOppositeDirection(neighborDir);
                 neighbor = currentChunk.Neighbors[(int)neighborDir];
             } while (neighbor == null);
 
@@ -144,6 +139,20 @@ namespace Projects
             neighbor.Walls[(int)chunkDir].Built = false;
 
             return neighborDir;
+        }
+
+        private Directions GetOppositeDirection(Directions dir)
+        {
+            if ((int)dir % 2 == 0)
+            {
+                dir++;
+            }
+            else
+            {
+                dir--;
+            }
+
+            return dir;
         }
 
         private bool UnvisitedChunksExist()
@@ -161,10 +170,18 @@ namespace Projects
 
         private void AddNeighbors(Chunk chunk)
         {
-            try { chunk.Neighbors[0] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1]; maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1].Print(); } catch (Exception) { }
-            try { chunk.Neighbors[1] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y + 1]; maze[chunk.MazeSpot.X, chunk.MazeSpot.Y + 1].Print(); } catch (Exception) { }
-            try { chunk.Neighbors[2] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y]; maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y].Print(); } catch (Exception) { }
-            try { chunk.Neighbors[3] = maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y]; maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y].Print(); } catch (Exception) { }
+            try { chunk.Neighbors[0] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1];
+                Console.Write("Neighbor: ");
+                maze[chunk.MazeSpot.X, chunk.MazeSpot.Y - 1].Print(); } catch (Exception) { }
+            try { chunk.Neighbors[1] = maze[chunk.MazeSpot.X, chunk.MazeSpot.Y + 1];
+                Console.Write("Neighbor: ");
+                maze[chunk.MazeSpot.X, chunk.MazeSpot.Y + 1].Print(); } catch (Exception) { }
+            try { chunk.Neighbors[2] = maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y];
+                Console.Write("Neighbor: ");
+                maze[chunk.MazeSpot.X - 1, chunk.MazeSpot.Y].Print(); } catch (Exception) { }
+            try { chunk.Neighbors[3] = maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y];
+                Console.Write("Neighbor: ");
+                maze[chunk.MazeSpot.X + 1, chunk.MazeSpot.Y].Print(); } catch (Exception) { }
         }
 
         Directions ChooseRandomNeighborDirection(Chunk chunk)
@@ -176,6 +193,7 @@ namespace Projects
                 dir = (Directions)rnd.Next(0, 4);
             } while (chunk.Neighbors[(int)dir] == null || chunk.Neighbors[(int)dir].Visited == true);
 
+            Console.WriteLine($"- - -Neighbor Direction: {dir}");
             return dir;
         }
 
