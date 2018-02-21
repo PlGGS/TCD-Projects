@@ -40,6 +40,7 @@
             this.Name = "frmMazeRunner";
             this.Text = "frmMazeRunner";
             this.Load += new System.EventHandler(this.frmMazeRunner_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMazeRunner_Paint);
             this.ResumeLayout(false);
 
         }

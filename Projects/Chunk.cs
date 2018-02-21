@@ -4,14 +4,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Projects
 {
     public class Chunk
     {
         public bool Visited = false;
-        bool[] walls = new bool[4];
-        public bool[] Walls { get { return walls; } set { walls = value; } }
+        Wall[] _walls = new Wall[4];
+        public Wall[] Walls { get { return _walls; } set { _walls = value; } }
         public Point MazeSpot { get; set; }
         public Size Size { get; set; }
         public Rectangle Rect;
@@ -28,16 +29,22 @@ namespace Projects
 
         void PlaceWalls()
         {
-            for (int i = 0; i < walls.Length; i++)
+            for (int i = 0; i < _walls.Length; i++)
             {
-                walls[i] = true;
+                _walls[i] = new Wall(MazeSpot, Size)
+                {
+                    Built = true,
+                    Type = (Wall.WallTypes)i
+                };
             }
         }
 
         public void Draw(Graphics g)
         {
-            Rect = new Rectangle(MazeSpot, Size);
-            g.FillRectangle(Brushes.DimGray, Rect);
+            foreach (Wall wall in Walls)
+            {
+                wall.Draw(g);
+            }
         }
         
         public void Reset()
@@ -57,7 +64,12 @@ namespace Projects
 
         public void Print()
         {
-            Console.WriteLine($"MazeSpot: ({MazeSpot.X}, {MazeSpot.Y}), Visited: {Visited}, Walls: {Walls}");
+            Console.WriteLine($"MazeSpot: ({MazeSpot.X}, {MazeSpot.Y}), Visited: {Visited}");
+
+            foreach (Wall wall in _walls)
+            {
+                wall.Print();
+            }
         }
     }
 }

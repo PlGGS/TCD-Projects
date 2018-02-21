@@ -51,6 +51,7 @@ namespace Projects
         public frmMazeRunner()
         {
             InitializeComponent();
+            Console.WriteLine("********Maze Runner Debug Info********");
             LoadChunks();
         }
 
@@ -139,8 +140,8 @@ namespace Projects
                 neighbor = currentChunk.Neighbors[(int)neighborDir];
             } while (neighbor == null);
 
-            chunk.Walls[(int)neighborDir] = false;
-            neighbor.Walls[(int)chunkDir] = false;
+            chunk.Walls[(int)neighborDir].Built = false;
+            neighbor.Walls[(int)chunkDir].Built = false;
 
             return neighborDir;
         }
@@ -176,6 +177,27 @@ namespace Projects
             } while (chunk.Neighbors[(int)dir] == null || chunk.Neighbors[(int)dir].Visited == true);
 
             return dir;
+        }
+
+        private void frmMazeRunner_Paint(object sender, PaintEventArgs e)
+        {
+            foreach (Chunk chunk in maze)
+            {
+                bool hasDestroyedWall = false;
+
+                foreach (Wall wall in chunk.Walls)
+                {
+                    if (wall.Built == false)
+                    {
+                        hasDestroyedWall = true;
+                    }
+                }
+
+                if (hasDestroyedWall)
+                {
+                    chunk.Draw(e.Graphics);
+                }
+            }
         }
     }
 }
