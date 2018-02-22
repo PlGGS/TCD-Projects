@@ -42,7 +42,6 @@
             this.Text = "frmMazeRunner";
             this.Load += new System.EventHandler(this.frmMazeRunner_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMazeRunner_Paint);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMazeRunner_MouseMove);
             this.ResumeLayout(false);
 
         }
