@@ -35,12 +35,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(500, 500);
+            this.ClientSize = new System.Drawing.Size(502, 502);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMazeRunner";
             this.Text = "frmMazeRunner";
             this.Load += new System.EventHandler(this.frmMazeRunner_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMazeRunner_Paint);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMazeRunner_MouseMove);
             this.ResumeLayout(false);
 
         }

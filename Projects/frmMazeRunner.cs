@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Shapes;
 
 namespace Projects
 {
@@ -15,8 +16,8 @@ namespace Projects
         const int maxChunksInRow = 3;
         const int chunkWidth = 20;
         const int chunkHeight = 20;
-        const int mazeWidth = 20;
-        const int mazeHeight = 20;
+        const int mazeWidth = 25;
+        const int mazeHeight = 25;
         public enum Directions
         {
             Up,
@@ -42,6 +43,10 @@ namespace Projects
             }
         }
         Random rnd = new Random();
+        Point lastCursorPos;
+        Point currentMousePos;
+        Point defaultCursorPos;
+        List<Tuple<Point, Point>> path = new List<Tuple<Point, Point>>();
 
         public frmMazeRunner()
         {
@@ -52,6 +57,9 @@ namespace Projects
 
         private void frmMazeRunner_Load(object sender, EventArgs e)
         {
+            defaultCursorPos = new Point(this.Left + 5, this.Top + 30);
+            lastCursorPos = defaultCursorPos;
+            currentMousePos = defaultCursorPos;
             CreateMaze();
         }
 
@@ -202,6 +210,7 @@ namespace Projects
             foreach (Chunk chunk in maze)
             {
                 bool hasDestroyedWall = false;
+                bool hasTouchedWall = false;
 
                 foreach (Wall wall in chunk.Walls)
                 {
@@ -209,13 +218,46 @@ namespace Projects
                     {
                         hasDestroyedWall = true;
                     }
+                    else
+                    {
+                        if (wall.Rect.Contains(currentMousePos))
+                        {
+                            hasTouchedWall = true;
+                        }
+                    }
                 }
 
                 if (hasDestroyedWall)
                 {
                     chunk.Draw(e.Graphics);
                 }
+
+                if (hasTouchedWall)
+                {
+                    Console.WriteLine($"Touched wall");
+                    path.Clear();
+                    lastCursorPos = defaultCursorPos;
+                    Cursor.Position = defaultCursorPos;
+                }
+                else if (currentMousePos != lastCursorPos)
+                {
+                    Tuple<Point, Point> line = new Tuple<Point, Point>(lastCursorPos, currentMousePos);
+                    path.Add(line);
+                }
+
+                foreach (Tuple<Point, Point> line in path)
+                {
+                    e.Graphics.DrawLine(Pens.Red, line.Item1, line.Item2);
+                }
+
+                lastCursorPos = currentMousePos;
             }
+        }
+
+        private void frmMazeRunner_MouseMove(object sender, MouseEventArgs e)
+        {
+            currentMousePos = e.Location;
+            this.Refresh();
         }
     }
 }
