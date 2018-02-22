@@ -42,6 +42,8 @@
             this.Text = "frmMazeRunner";
             this.Load += new System.EventHandler(this.frmMazeRunner_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMazeRunner_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMazeRunner_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmMazeRunner_KeyUp);
             this.ResumeLayout(false);
 
         }

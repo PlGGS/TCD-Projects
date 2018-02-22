@@ -44,6 +44,9 @@ namespace Projects
         }
         Random rnd = new Random();
         List<Tuple<Point, Point>> path = new List<Tuple<Point, Point>>();
+        Point prevRunnerPos;
+        Point currentRunnerPos;
+        Runner runner;
 
         public frmMazeRunner()
         {
@@ -54,6 +57,8 @@ namespace Projects
 
         private void frmMazeRunner_Load(object sender, EventArgs e)
         {
+            runner = new Runner(new Size(chunkWidth / 2, chunkHeight / 2), this.Left, this.Top);
+            prevRunnerPos = runner.MidPosition;
             CreateMaze();
         }
 
@@ -217,7 +222,95 @@ namespace Projects
                 {
                     chunk.Draw(e.Graphics);
                 }
+
+                foreach (Tuple<Point, Point> line in path)
+                {
+                    e.Graphics.DrawLine(Pens.Red, line.Item1, line.Item2);
+                }
+
+                runner.Draw(e.Graphics);
             }
+        }
+
+        private void frmMazeRunner_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyValue)
+            {
+                case (int)Keys.W:
+                    if (NotColliding())
+                    {
+                        runner.Position = new Point(runner.Position.X, runner.Position.Y - 1);
+                        currentRunnerPos = runner.MidPosition;
+                        this.Refresh();
+                    }
+                    else
+                    {
+                        runner.Position = runner.StartingPos;
+                    }
+                    break;
+                case (int)Keys.A:
+                    if (NotColliding())
+                    {
+                        runner.Position = new Point(runner.Position.X - 1, runner.Position.Y);
+                        currentRunnerPos = runner.MidPosition;
+                        this.Refresh();
+                    }
+                    else
+                    {
+                        runner.Position = runner.StartingPos;
+                    }
+                    break;
+                case (int)Keys.S:
+                    if (NotColliding())
+                    {
+                        runner.Position = new Point(runner.Position.X, runner.Position.Y + 1);
+                        currentRunnerPos = runner.MidPosition;
+                        this.Refresh();
+                    }
+                    else
+                    {
+                        runner.Position = runner.StartingPos;
+                    }
+                    break;
+                case (int)Keys.D:
+                    if (NotColliding())
+                    {
+                        runner.Position = new Point(runner.Position.X + 1, runner.Position.Y);
+                        currentRunnerPos = runner.MidPosition;
+                        this.Refresh();
+                    }
+                    else
+                    {
+                        runner.Position = runner.StartingPos;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private bool NotColliding()
+        {
+            foreach (Chunk chunk in maze)
+            {
+                foreach (Wall wall in chunk.Walls)
+                {
+                    if (wall.Built == false)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void frmMazeRunner_KeyUp(object sender, KeyEventArgs e)
+        {
+            Tuple<Point, Point> line = new Tuple<Point, Point>(prevRunnerPos, currentRunnerPos);
+            path.Add(line);
+            this.Refresh();
+            prevRunnerPos = currentRunnerPos;
         }
     }
 }
