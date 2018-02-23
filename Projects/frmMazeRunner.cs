@@ -223,9 +223,17 @@ namespace Projects
                     chunk.Draw(e.Graphics);
                 }
 
-                foreach (Tuple<Point, Point> line in path)
+                if (path.Count > 0)
                 {
-                    e.Graphics.DrawLine(Pens.Red, line.Item1, line.Item2);
+                    e.Graphics.DrawLine(Pens.Red, path.Last<Tuple<Point, Point>>().Item1, path.Last<Tuple<Point, Point>>().Item2);
+
+                    if (IsInWinningChunk())
+                    {
+                        foreach (Tuple<Point, Point> line in path)
+                        {
+                            e.Graphics.DrawLine(Pens.Red, line.Item1, line.Item2);
+                        }
+                    }
                 }
 
                 runner.Draw(e.Graphics);
@@ -234,70 +242,83 @@ namespace Projects
 
         private void frmMazeRunner_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyValue)
+            if (!IsInWinningChunk())
             {
-                case (int)Keys.W:
-                    if (NotColliding())
-                    {
-                        runner.Position = new Point(runner.Position.X, runner.Position.Y - 1);
-                        currentRunnerPos = runner.MidPosition;
-                        this.Refresh();
-                    }
-                    else
-                    {
-                        runner.Position = runner.StartingPos;
-                    }
-                    break;
-                case (int)Keys.A:
-                    if (NotColliding())
-                    {
-                        runner.Position = new Point(runner.Position.X - 1, runner.Position.Y);
-                        currentRunnerPos = runner.MidPosition;
-                        this.Refresh();
-                    }
-                    else
-                    {
-                        runner.Position = runner.StartingPos;
-                    }
-                    break;
-                case (int)Keys.S:
-                    if (NotColliding())
-                    {
-                        runner.Position = new Point(runner.Position.X, runner.Position.Y + 1);
-                        currentRunnerPos = runner.MidPosition;
-                        this.Refresh();
-                    }
-                    else
-                    {
-                        runner.Position = runner.StartingPos;
-                    }
-                    break;
-                case (int)Keys.D:
-                    if (NotColliding())
-                    {
-                        runner.Position = new Point(runner.Position.X + 1, runner.Position.Y);
-                        currentRunnerPos = runner.MidPosition;
-                        this.Refresh();
-                    }
-                    else
-                    {
-                        runner.Position = runner.StartingPos;
-                    }
-                    break;
-                default:
-                    break;
+                switch (e.KeyValue)
+                {
+                    case (int)Keys.W:
+                        if (!Colliding())
+                        {
+                            runner.Position = new Point(runner.Position.X, runner.Position.Y - 1);
+                            currentRunnerPos = runner.MidPosition;
+                            this.Refresh();
+                        }
+                        else
+                        {
+                            Reset();
+                        }
+                        break;
+                    case (int)Keys.A:
+                        if (!Colliding())
+                        {
+                            runner.Position = new Point(runner.Position.X - 1, runner.Position.Y);
+                            currentRunnerPos = runner.MidPosition;
+                            this.Refresh();
+                        }
+                        else
+                        {
+                            Reset();
+                        }
+                        break;
+                    case (int)Keys.S:
+                        if (!Colliding())
+                        {
+                            runner.Position = new Point(runner.Position.X, runner.Position.Y + 1);
+                            currentRunnerPos = runner.MidPosition;
+                            this.Refresh();
+                        }
+                        else
+                        {
+                            Reset();
+                        }
+                        break;
+                    case (int)Keys.D:
+                        if (!Colliding())
+                        {
+                            runner.Position = new Point(runner.Position.X + 1, runner.Position.Y);
+                            currentRunnerPos = runner.MidPosition;
+                            this.Refresh();
+                        }
+                        else
+                        {
+                            Reset();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            void Reset()
+            {
+                runner.Position = runner.StartingPos;
+                path.Clear();
+                this.Refresh();
             }
         }
 
-        private bool NotColliding()
+        private bool Colliding()
         {
             foreach (Chunk chunk in maze)
             {
                 foreach (Wall wall in chunk.Walls)
                 {
-                    if (wall.Built == false)
+                    if (wall.Built)
                     {
-                        return true;
+                        if (wall.Rect.IntersectsWith(runner.Rect))
+                        {
+                            return true;
+                        }
                     }
                 }
             }
@@ -311,6 +332,40 @@ namespace Projects
             path.Add(line);
             this.Refresh();
             prevRunnerPos = currentRunnerPos;
+
+            if (IsInWinningChunk())
+            {
+                this.Refresh();
+                DialogResult msgWin = MessageBox.Show("You win! Would you like to play again?", "Maze Runner", MessageBoxButtons.YesNoCancel);
+
+                switch (msgWin)
+                {
+                    case DialogResult.Yes:
+                        frmMazeRunner frm = new frmMazeRunner();
+                        frm.Show();
+                        this.Close();
+                        break;
+                    case DialogResult.No:
+                        this.Close();
+                        break;
+                    case DialogResult.Cancel:
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            Console.WriteLine(path.Count);
+        }
+
+        bool IsInWinningChunk()
+        {
+            if (runner.Rect.IntersectsWith(maze[mazeWidth - 1, mazeHeight - 1].Rect))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

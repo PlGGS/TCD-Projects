@@ -24,6 +24,7 @@ namespace Projects
         {
             MazeSpot = new Point(x, y);
             Size = new Size(width, height);
+            Rect = new Rectangle(x * width, y * height, width, height);
             PlaceWalls();
         }
 
